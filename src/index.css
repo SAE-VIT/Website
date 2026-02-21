@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-
 html,body{
     height: 100%;
     margin: 0px;
     padding: 0px;
     background: linear-gradient(120deg,#0f1117,#1a1f2b);
-    /* overflow-y: scroll; */
 }
 
 .image{
@@ -25,14 +22,14 @@ html,body{
     justify-content: space-between;
     margin-inline: auto;
     background: transparent;
-    padding: 5px;
+    padding: 10px;
     margin: 10px;
 }
 
 .nav-ele{
     margin: 20px;
     color: white;
-    font-size: large;
+    font-size: 20px;
     font-family: 'Google Sans',sans-serif;
     text-decoration: none;
     background: transparent;
@@ -64,27 +61,29 @@ html,body{
 
 .small-left{
     position: relative;
-    left: -75px;   
+    left: -120px;   
     font-family: Arial, Helvetica, sans-serif;
     padding:0px;
     margin:0px;
     color:white;
     text-align: left;
+    font-size: 20px;
 }
 
 .small-right{
     position: relative;
-    right: -80px;
+    right: -150px;
     font-family: Arial, Helvetica, sans-serif;
     padding:0px;
     margin:0px;
     color:white;
     text-align: right;
+    font-size: 20px;
 }
 
 .socials{
-    position: absolute;
-    top: 80%;
+    position: fixed;
+    top: 82%;
     left: 40px;
     gap: 20px;
 }
@@ -127,4 +126,63 @@ html,body{
 
 .blog-desc{
     padding: 10px;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    gap:100px;
+    margin-top: 30px;
+}
+
+.contact-det{
+    width: 600px;
+    height: 600px;
+    text-align: center;
+    margin:10px;
+    padding:10px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form{
+    width: 600px;
+    height: 600px;
+    text-align:center;
+    margin:10px;
+    padding:10px;
+    color:white;
+    border: 1px solid none;
+    box-shadow: 10px  10px 25px hsl(220, 30%, 6%);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form input, .contact-form textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid hsl(220, 15%, 40%);
+    color: white;
+    margin: 15px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form button {
+    background: hsl(220, 30%, 20%);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }

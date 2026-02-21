@@ -14,7 +14,7 @@ function Navbar(){
                         <Link to="/blogs" className='nav-ele'>Blogs</Link>
                         <Link to="/events" className='nav-ele'>Events</Link>
                         <Link to="/about" className='nav-ele'>About us</Link>
-                        <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRtsWDLpjvgVLZFCWHWDHMVSJlkHPZJccRvBZQQdsrWpWDJvbZhLKHqQZJFxLjxPdqVbNTG" className='nav-ele'>Contact us</a>       
+                        <Link to="/contact" className='nav-ele'>Contact us</Link>    
                     </div>
                 </div>       
             </nav>
