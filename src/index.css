@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+html,body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(120deg,#0f1117,#1a1f2b);
+    /* overflow-y: scroll; */
+}
+
+.image{
+    text-align: left;
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    padding-left: 15px;
+    background: transparent;
+
+}
+
+.navbar{
+    display: flex;
+    border-radius: 50px;
+    background: transparent;
+    justify-content: space-between;
+    margin-inline: auto;
+    background: transparent;
+    padding: 5px;
+    margin: 10px;
+}
+
+.nav-ele{
+    margin: 20px;
+    color: white;
+    font-size: large;
+    font-family: 'Google Sans',sans-serif;
+    text-decoration: none;
+    background: transparent;
+}
+
+.nav-det{
+    display: flex;
+    justify-content: center;
+    background: transparent;
+}
+
+.hero {
+    height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 120px;
+    color:white;
+    letter-spacing: 8px;
+    padding:0px;
+    margin:0px;
+}
+
+.small-left{
+    position: relative;
+    left: -75px;   
+    font-family: Arial, Helvetica, sans-serif;
+    padding:0px;
+    margin:0px;
+    color:white;
+    text-align: left;
+}
+
+.small-right{
+    position: relative;
+    right: -80px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:0px;
+    margin:0px;
+    color:white;
+    text-align: right;
+}
+
+.socials{
+    position: absolute;
+    top: 80%;
+    left: 40px;
+    gap: 20px;
+}
+
+.socials img{
+    height: 25x;
+    margin: 10px;
+    width: 25px;
+}
+
+.blogs{
+    margin: 25px;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.blog-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.blog-title {
+    padding: 10px;
+}
+
+.blog-title>*{
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-desc{
+    padding: 10px;
+}
