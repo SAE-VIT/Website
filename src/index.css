@@ -1,100 +1,95 @@
-html,body{
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    background: linear-gradient(120deg,#0f1117,#1a1f2b);
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #0f1117, #1a1f2b);
+    background-attachment: fixed;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.image{
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.image {
     text-align: left;
     width: 150px;
     height: 50px;
     margin: 10px;
     padding-left: 15px;
-    background: transparent;
-
 }
 
-.navbar{
+.navbar {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95vw;
     display: flex;
-    border-radius: 50px;
-    background: transparent;
     justify-content: space-between;
-    margin-inline: auto;
-    background: transparent;
-    padding: 10px;
-    margin: 10px;
+    align-items: center;
+    padding: 10px ;
+    border-radius: 50px;
 }
 
-.nav-ele{
+.nav-ele {
     margin: 20px;
     color: white;
-    font-size: 20px;
-    font-family: 'Google Sans',sans-serif;
+    font-size: 21px;
+    font-family: 'Google Sans', sans-serif;
     text-decoration: none;
-    background: transparent;
 }
 
-.nav-det{
+.nav-det {
     display: flex;
     justify-content: center;
-    background: transparent;
 }
 
 .hero {
-    height: calc(100vh - 110px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.hero h1{
+.hero h1 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 120px;
-    color:white;
-    letter-spacing: 8px;
-    padding:0px;
-    margin:0px;
+    color: white;
+    margin: 0;
 }
 
-.small-left{
+.small-left {
     position: relative;
-    left: -120px;   
-    font-family: Arial, Helvetica, sans-serif;
-    padding:0px;
-    margin:0px;
-    color:white;
-    text-align: left;
+    left: -200px;
+    color: white;
     font-size: 20px;
 }
 
-.small-right{
+.small-right {
     position: relative;
     right: -150px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding:0px;
-    margin:0px;
-    color:white;
-    text-align: right;
+    color: white;
     font-size: 20px;
 }
 
-.socials{
+.socials {
     position: fixed;
     top: 82%;
     left: 40px;
     gap: 20px;
 }
 
-.socials img{
-    height: 25x;
-    margin: 10px;
+.socials img {
+    height: 25px;
     width: 25px;
+    margin: 10px;
 }
 
-.blogs{
+.blogs {
     margin: 25px;
 }
 
@@ -119,53 +114,45 @@ html,body{
     padding: 10px;
 }
 
-.blog-title>*{
+.blog-title > * {
     text-decoration: none;
     color: inherit;
 }
 
-.blog-desc{
+.blog-desc {
     padding: 10px;
 }
 
-.contact{
+.contact {
     display: flex;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    gap:100px;
+    gap: 100px;
     margin-top: 30px;
 }
 
-.contact-det{
+.contact-det,
+.contact-form {
     width: 600px;
-    height: 600px;
+    min-height: 600px;
     text-align: center;
-    margin:10px;
-    padding:10px;
-    color:white;
+    margin: 10px;
+    padding: 10px;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.contact-form{
-    width: 600px;
-    height: 600px;
-    text-align:center;
-    margin:10px;
-    padding:10px;
-    color:white;
-    border: 1px solid none;
-    box-shadow: 10px  10px 25px hsl(220, 30%, 6%);
-    font-family: Arial, Helvetica, sans-serif;
+.contact-form {
+    box-shadow: 10px 10px 25px hsl(220, 30%, 6%);
 }
 
 .contact-form form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     background: transparent;
     border: none;
     border-bottom: 1px solid hsl(220, 15%, 40%);
@@ -183,6 +170,31 @@ html,body{
     border-radius: 6px;
     cursor: pointer;
     margin: 15px;
-    padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+}
+
+.team-img {
+    width: 800px;
+    height: auto;
+    border-radius: 50px;
+    margin: 100px;
+}
+
+.team-det {
+    width: 700px;
+    font-size: 20px;
+    margin-left: 250px;
+    font-weight: 300;
+}
+
+.team-det h2,
+.team-det p {
+    color: white;
+    margin: 20px;
+    padding: 10px;
 }
