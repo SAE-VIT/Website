@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@fontsource-variable/geist": "^5.2.8",
     "@sanity/client": "^7.14.1",
     "@sanity/image-url": "^2.0.3",
@@ -32,16 +31,6 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^25.7.0",
-=======
-    "@sanity/client": "^7.14.1",
-    "@sanity/image-url": "^2.0.3",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.13.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.1",
->>>>>>> 417361a7bd808b30bdea90ac115aa4a2fab0e31f
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
