@@ -1,25 +1,38 @@
-import React, {useState} from 'react'
-import './index.css'
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./index.css";
+import { NavLink } from "react-router-dom";
+import logo from "./assets/sae-logo.png";
+import GooeyNav from '/src/components/GooeyNav'
 
-function Navbar(){
-    return (
-        <div>
-            <nav>   
-                <div className='navbar'>
-                    <Link to="/">
-                        <img className='image' src="./src/assets/sae-logo.png" />
-                    </Link>
-                    <div className='nav-det'>
-                        <Link to="/blogs" className='nav-ele'>Blogs</Link>
-                        <Link to="/events" className='nav-ele'>Events</Link>
-                        <Link to="/about" className='nav-ele'>About us</Link>
-                        <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRtsWDLpjvgVLZFCWHWDHMVSJlkHPZJccRvBZQQdsrWpWDJvbZhLKHqQZJFxLjxPdqVbNTG" className='nav-ele'>Contact us</a>       
-                    </div>
-                </div>       
-            </nav>
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/events", label: "Events" },
+  { href: "/blogs", label: "Blog" },
+  { href: "/about", label: "About" },
+  { href: "https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRtsWDLpjvgVLZFCWHWDHMVSJlkHPZJccRvBZQQdsrWpWDJvbZhLKHqQZJFxLjxPdqVbNTG", label: "Contact us", external: true },
+];
+
+function Navbar() {
+  return (
+      <nav className="navbar">
+        <NavLink to="/" className="brand-link">
+          <img className="brand-logo" src={logo} alt="SAE logo" />
+        </NavLink>
+        <div style={{ height: '50px'}}>
+          <GooeyNav
+            items={navItems}
+            particleCount={15}
+            particleDistances={[28, 6]}
+            particleR={42}
+            initialActiveIndex={0}
+            animationTime={600}
+            timeVariance={300}
+            colors={[1, 2, 3, 4, 1, 2, 3, 4]}
+          />
         </div>
-    );
+        {/* <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRtsWDLpjvgVLZFCWHWDHMVSJlkHPZJccRvBZQQdsrWpWDJvbZhLKHqQZJFxLjxPdqVbNTG" className='nav-ele'>Contact us</a> */}
+      </nav>
+  );
 }
 
 export default Navbar;

@@ -34,7 +34,7 @@ function Posts() {
 
           <div>
               <h2 className='blog-title'>
-                <a href={post.mediumLink} target="_blank">{post.title}</a>
+                <a href={post.mediumLink} target="_blank" rel="noreferrer">{post.title}</a>
               </h2>
             <p className="blog-desc">{post.description}</p>
           </div>
