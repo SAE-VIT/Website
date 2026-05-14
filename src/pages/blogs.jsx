@@ -8,7 +8,7 @@ function Blogs() {
   useEffect(() => {
     client
         .fetch(`
-            *[_type == "post"] | (order desc){
+            *[_type == "post"] | order(date desc){
             title,
             date,
             mediumLink,
