@@ -5,15 +5,6 @@ import { client } from '/src/sanityClient'
 import { urlFor } from '/src/imageBuilder'
 import OrbitImages from '/src/components/OrbitImages'
 
-const committee = [
-  { name: "Aarav Menon", role: "Chairperson" },
-  { name: "Riya Sharma", role: "Vice Chair" },
-  { name: "Aditya Rao", role: "Technical Lead" },
-  { name: "Neha Iyer", role: "Operations Lead" },
-  { name: "Karan Patel", role: "Media Lead" },
-  { name: "Sana Thomas", role: "Outreach Lead" },
-];
-
 const images = [
   "https://picsum.photos/300/300?grayscale&random=1",
   "https://picsum.photos/300/300?grayscale&random=2",
@@ -26,7 +17,6 @@ const images = [
   "https://picsum.photos/300/300?grayscale&random=3",
   "https://picsum.photos/300/300?grayscale&random=2",
 ];
-
 
 function Home() {
   const [events, setEvents] = useState([]);
@@ -93,18 +83,6 @@ function Home() {
         </div>
 
         <div className="hero-photo-card fade-up delay-1">
-          {/* <div className="hero-image-surface">
-            <div className="hero-badge top-badge">
-              <strong>12+</strong>
-              <span>Events</span>
-            </div>
-            <div className="hero-badge bottom-badge">
-              <strong>4</strong>
-              <span>Active wings</span>
-            </div>
-            <div className="floating-card floating-one" />
-            <div className="floating-card floating-two" />
-          </div> */}
           <OrbitImages
             className="home-orbit"
             images={images}
@@ -200,10 +178,9 @@ function Home() {
 
       <section className="blogs-sec fade-up delay-1">
         <div className="section-title-wrap">
-          <h2>Blogs</h2>
+          <h2>Latest Blogs</h2>
           <p>
-            A quick look at the chapter calendar, recent events, and the kind
-            of energy members can expect through the semester.
+            Explore technical insights, event recaps, student experiences, and ideas shared by members of the chapter.
           </p>
         </div>
 

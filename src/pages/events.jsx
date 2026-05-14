@@ -1,12 +1,108 @@
-import React from "react";
-import Events from "/src/eventsSanity";
+import { useEffect, useState } from "react";
+import { client } from "/src/sanityClient";
+import { urlFor } from "/src/imageBuilder";
 
-function EventsPage() {
+function Events() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    client
+      .fetch(`
+        *[_type == "event"] | order(date desc) {
+          title,
+          date,
+          image,
+          description,
+          location,
+          isUpcoming
+        }
+      `)
+      .then((data) => setEvents(data))
+      .catch((err) => console.error("SANITY ERROR:", err));
+  }, []);
+
+const upcomingEvents = events
+  .filter((event) => event.isUpcoming)
+  .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+const generalEvents = events.filter((event) => !event.isUpcoming);
+
   return (
-    <div>
-      <Events />
+    <div className="events-page">
+      <section className="upcoming-events-section fade-up delay-1">
+        <div className="section-title-wrap">
+          <h2>Upcoming Events</h2>
+        </div>
+
+        <div className="timeline-wrapper">
+          {upcomingEvents.map((event, index) => (
+            <article
+              className={`timeline-event ${
+                index % 2 !== 0 ? "reverse-event" : ""
+              }`}
+              key={index}
+            >
+              <div className="timeline-left">
+                <span className="timeline-tag">
+                  Upcoming Event
+                </span>
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+              </div>
+
+              <div className="timeline-center">
+                <div className="timeline-line" />
+              </div>
+
+              <div className="timeline-right">
+                <div className="timeline-meta">
+                  <span>Date</span>
+                  <strong>{event.date}</strong>
+                </div>
+
+                <div className="timeline-meta">
+                  <span>Venue</span>
+                  <strong>{event.location || "VIT Vellore"}</strong>
+                </div>
+              </div>
+
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="general-events-section fade-up delay-2">
+        <div className="section-title-wrap">
+          <h2>All Events</h2>
+        </div>
+
+        <div className="sanity-events-grid">
+          {generalEvents.map((event, index) => (
+            <article
+              className="sanity-event-card hover-lift"
+              key={index}
+            >
+              {event.image && (
+                <img
+                  src={urlFor(event.image).width(520).height(320).url()}
+                  alt={event.title}
+                  className="sanity-event-image"
+                />
+              )}
+
+              <div className="sanity-event-body">
+                <span className="event-date">
+                  {event.eventDate}
+                </span>
+                <h2>{event.title}</h2>
+                <p>{event.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
 
-export default EventsPage;
+export default Events;
