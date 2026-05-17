@@ -4,7 +4,7 @@ import saeTeam from "/src/assets/sae-team-2.jpeg";
 import chairImg from "/src/assets/board 26-27/chair.jpeg";
 import secImg from "/src/assets/board 26-27/sec.jpg";
 import viceChairImg from "/src/assets/board 26-27/vice-chair.png";
-import coSecretaryImg from "/src/assets/board 26-27/co-secretary.JPG";
+import coSecretaryImg from "/src/assets/board 26-27/co-secretary.jpg";
 import operationsManagerImg from "/src/assets/board 26-27/operations-manager.jpeg";
 import eventsHeadImg from "/src/assets/board 26-27/events-head.jpg";
 import prHeadImg from "/src/assets/board 26-27/pr-head.jpg";
