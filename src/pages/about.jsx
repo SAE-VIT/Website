@@ -1,19 +1,19 @@
 import { useState } from "react";
 import "/src/index.css";
 import saeTeam from "/src/assets/sae-team-2.jpeg";
-import chairImg from "../assets/board 26-27/chair.jpeg";
-import secImg from "../assets/board 26-27/sec.jpg";
-import viceChairImg from "../assets/board 26-27/vice-chair.png";
-import coSecretaryImg from "../assets/board 26-27/co-secretary.JPG";
-import operationsManagerImg from "../assets/board 26-27/operations-manager.jpeg";
-import eventsHeadImg from "../assets/board 26-27/events-head.jpg";
-import prHeadImg from "../assets/board 26-27/pr-head.jpg";
-import editorialHeadImg from "../assets/board 26-27/editorial-head.jpeg";
-import financeHeadImg from "../assets/board 26-27/finance-head.jpg";
-import hrHeadImg from "../assets/board 26-27/hr-head.jpg";
-import technicalHeadImg from "../assets/board 26-27/technical-head.jpeg";
-import aerodominatorHeadImg from "../assets/board 26-27/aerodominator-head.jpg";
-import drlHeadImg from "../assets/board 26-27/drl-head.jpeg";
+import chairImg from "/src/assets/board 26-27/chair.jpeg";
+import secImg from "/src/assets/board 26-27/sec.jpg";
+import viceChairImg from "/src/assets/board 26-27/vice-chair.png";
+import coSecretaryImg from "/src/assets/board 26-27/co-secretary.JPG";
+import operationsManagerImg from "/src/assets/board 26-27/operations-manager.jpeg";
+import eventsHeadImg from "/src/assets/board 26-27/events-head.jpg";
+import prHeadImg from "/src/assets/board 26-27/pr-head.jpg";
+import editorialHeadImg from "/src/assets/board 26-27/editorial-head.jpeg";
+import financeHeadImg from "/src/assets/board 26-27/finance-head.jpg";
+import hrHeadImg from "/src/assets/board 26-27/hr-head.jpg";
+import technicalHeadImg from "/src/assets/board 26-27/technical-head.jpeg";
+import aerodominatorHeadImg from "/src/assets/board 26-27/aerodominator-head.jpg";
+import drlHeadImg from "/src/assets/board 26-27/drl-head.jpeg";
 
 function About() {
   const boards = {
