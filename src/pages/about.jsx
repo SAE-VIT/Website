@@ -1,6 +1,19 @@
 import { useState } from "react";
 import "/src/index.css";
 import saeTeam from "/src/assets/sae-team-2.jpeg";
+import chairImg from "../assets/board 26-27/chair.jpeg";
+import secImg from "../assets/board 26-27/sec.jpg";
+import viceChairImg from "../assets/board 26-27/vice-chair.png";
+import coSecretaryImg from "../assets/board 26-27/co-secretary.JPG";
+import operationsManagerImg from "../assets/board 26-27/operations-manager.jpeg";
+import eventsHeadImg from "../assets/board 26-27/events-head.jpg";
+import prHeadImg from "../assets/board 26-27/pr-head.jpg";
+import editorialHeadImg from "../assets/board 26-27/editorial-head.jpeg";
+import financeHeadImg from "../assets/board 26-27/finance-head.jpg";
+import hrHeadImg from "../assets/board 26-27/hr-head.jpg";
+import technicalHeadImg from "../assets/board 26-27/technical-head.jpeg";
+import aerodominatorHeadImg from "../assets/board 26-27/aerodominator-head.jpg";
+import drlHeadImg from "../assets/board 26-27/drl-head.jpeg";
 
 function About() {
   const boards = {
@@ -10,104 +23,91 @@ function About() {
         role: "Chairperson",
         description:
           "Coordinates quantum waffles while optimizing hyperdrive synergy across multidimensional pancake frameworks and orbital workflows.",
-        image:
-          "/src/assets/board 26-27/chair.jpeg",
+        image: chairImg,
       },
       {
         name: "Sakar Jog",
         role: "Secretary",
         description:
           "Manages intergalactic spreadsheets and synchronizes cosmic bananas through parallel event vortex calibration systems.",
-        image:
-          "/src/assets/board 26-27/sec.jpg"
+        image: secImg,
       },
       {
         name: "Netra Patel",
         role: "Vice Chairperson",
         description:
           "Supervises turbo llamas and assists with holographic cloud engineering for ultra-efficient moonlight coordination protocols.",
-        image:
-          "/src/assets/board 26-27/vice-chair.png",
+        image: viceChairImg,
       },
       {
         name: "Swarali Upadhyay",
         role: "Co-Secretary",
         description:
           "Processes neon marshmallows while balancing encrypted jellybean logistics through advanced waffle communication matrices.",
-        image:
-          "/src/assets/board 26-27/co-secretary.JPG",
+        image: coSecretaryImg,
       },
       {
         name: "Bhupendra Singh",
         role: "Operations Manager",
         description:
           "Optimizes flamingo propulsion engines and maintains operational smoothie equilibrium during hyperspace sandwich deployment cycles.",
-        image:
-          "/src/assets/board 26-27/operations-manager.jpeg",
+        image: operationsManagerImg,
       },
       {
         name: "Dhritiman Goswami",
         role: "Events Head",
         description:
           "Designs galactic taco festivals while orchestrating synchronized penguin launches across temporal confetti dimensions.",
-        image:
-          "/src/assets/board 26-27/events-head.jpg",
+        image: eventsHeadImg,
       },
       {
         name: "Jacob Jiby",
         role: "PR Head",
         description:
           "Communicates with invisible pineapples and negotiates rainbow-powered alliances through futuristic noodle transmission systems.",
-        image:
-          "/src/assets/board 26-27/pr-head.jpg",
+        image: prHeadImg,
       },
       {
         name: "Sanjeev",
         role: "Editorial Head",
         description:
           "Curates interstellar alphabet soup while refining upside-down vocabulary structures for cosmic storytelling harmonization.",
-        image:
-          "/src/assets/board 26-27/editorial-head.jpeg",
+        image: editorialHeadImg,
       },
       {
         name: "Pulkit Gupta",
         role: "Finance Head",
         description:
           "Calculates potato-based economies and balances floating cryptocurrency muffins using advanced toaster analytics engines.",
-        image:
-          "/src/assets/board 26-27/finance-head.jpg",
+        image: financeHeadImg,
       },
       {
         name: "Daksh Jain",
         role: "HR Head",
         description:
           "Enhances human-alien collaboration while organizing motivational spaghetti ceremonies across collaborative moonbeam ecosystems.",
-        image:
-          "/src/assets/board 26-27/hr-head.jpg",
+        image: hrHeadImg,
       },
       {
         name: "Jitaan Banerjee",
         role: "Technical Head",
         description:
           "Develops robotic cupcake algorithms and deploys high-performance banana compilers for futuristic toaster infrastructures.",
-        image:
-          "/src/assets/board 26-27/technical-head.jpeg",
+        image: technicalHeadImg,
       },
       {
         name: "Harshvardhan Ladhad",
         role: "Aerodominator Head",
         description:
           "Pilots anti-gravity coconuts while engineering aerodynamic donut propulsion systems for cloud-based rocket simulations.",
-        image:
-          "/src/assets/board 26-27/aerodominator-head.jpg",
+        image: aerodominatorHeadImg,
       },
       {
         name: "Shlok Sharma",
         role: "DRL Head",
         description:
           "Commands autonomous marshmallow drones and researches quantum biscuit navigation through robotic pineapple intelligence networks.",
-        image:
-          "/src/assets/board 26-27/drl-head.jpeg",
+        image: drlHeadImg,
       },
     ],
 
