@@ -12,7 +12,7 @@ import editorialHeadImg from "/src/assets/board 26-27/editorial-head.jpeg";
 import financeHeadImg from "/src/assets/board 26-27/finance-head.jpg";
 import hrHeadImg from "/src/assets/board 26-27/hr-head.jpg";
 import technicalHeadImg from "/src/assets/board 26-27/technical-head.jpeg";
-import aerodominatorHeadImg from "/src/assets/board 26-27/aerodominator-head.jpg";
+import aerodominatorHeadImg from "/src/assets/board 26-27/aerodominator-Head.jpg";
 import drlHeadImg from "/src/assets/board 26-27/drl-head.jpeg";
 
 function About() {
