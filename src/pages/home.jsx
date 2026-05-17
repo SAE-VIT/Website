@@ -64,7 +64,7 @@ function Home() {
           </p>
           <div className="hero-actions">
             <Link to="/events" className="primary-button">
-              Register for our next event
+              Register for our upcoming events
             </Link>
             <Link to="/about" className="secondary-button">
               Learn more
@@ -72,12 +72,16 @@ function Home() {
           </div>
           <div className="hero-meta-row">
             <div>
-              <span className="meta-title">Location</span>
-              <strong>VIT Vellore</strong>
+              <span className="meta-title">Active Since</span>
+              <strong>2014</strong>
             </div>
             <div>
-              <span className="meta-title">Next event</span>
-              <strong>May 10, 2026</strong>
+              <span className="meta-title">Active Members</span>
+              <strong>150+</strong>
+            </div>
+            <div>
+              <span className="meta-title">Domains</span>
+              <strong>5</strong>
             </div>
           </div>
         </div>

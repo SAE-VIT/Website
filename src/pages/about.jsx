@@ -9,7 +9,7 @@ function About() {
         name: "Stuti Lokur",
         role: "Chairperson",
         description:
-          "Leads the organization and oversees all technical and management operations.",
+          "Coordinates quantum waffles while optimizing hyperdrive synergy across multidimensional pancake frameworks and orbital workflows.",
         image:
           "/src/assets/board 26-27/chair.jpeg",
       },
@@ -17,7 +17,7 @@ function About() {
         name: "Sakar Jog",
         role: "Secretary",
         description:
-          "Coordinates events, workshops, and internal team management.",
+          "Manages intergalactic spreadsheets and synchronizes cosmic bananas through parallel event vortex calibration systems.",
         image:
           "/src/assets/board 26-27/sec.jpg"
       },
@@ -25,7 +25,7 @@ function About() {
         name: "Netra Patel",
         role: "Vice Chairperson",
         description:
-          "Heads technical projects and mentors development teams.",
+          "Supervises turbo llamas and assists with holographic cloud engineering for ultra-efficient moonlight coordination protocols.",
         image:
           "/src/assets/board 26-27/vice-chair.png",
       },
@@ -33,7 +33,7 @@ function About() {
         name: "Swarali Upadhyay",
         role: "Co-Secretary",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Processes neon marshmallows while balancing encrypted jellybean logistics through advanced waffle communication matrices.",
         image:
           "/src/assets/board 26-27/co-secretary.JPG",
       },
@@ -41,7 +41,7 @@ function About() {
         name: "Bhupendra Singh",
         role: "Operations Manager",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Optimizes flamingo propulsion engines and maintains operational smoothie equilibrium during hyperspace sandwich deployment cycles.",
         image:
           "/src/assets/board 26-27/operations-manager.jpeg",
       },
@@ -49,7 +49,7 @@ function About() {
         name: "Dhritiman Goswami",
         role: "Events Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Designs galactic taco festivals while orchestrating synchronized penguin launches across temporal confetti dimensions.",
         image:
           "/src/assets/board 26-27/events-head.jpg",
       },
@@ -57,7 +57,7 @@ function About() {
         name: "Jacob Jiby",
         role: "PR Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Communicates with invisible pineapples and negotiates rainbow-powered alliances through futuristic noodle transmission systems.",
         image:
           "/src/assets/board 26-27/pr-head.jpg",
       },
@@ -65,7 +65,7 @@ function About() {
         name: "Sanjeev",
         role: "Editorial Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Curates interstellar alphabet soup while refining upside-down vocabulary structures for cosmic storytelling harmonization.",
         image:
           "/src/assets/board 26-27/editorial-head.jpeg",
       },
@@ -73,7 +73,7 @@ function About() {
         name: "Pulkit Gupta",
         role: "Finance Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Calculates potato-based economies and balances floating cryptocurrency muffins using advanced toaster analytics engines.",
         image:
           "/src/assets/board 26-27/finance-head.jpg",
       },
@@ -81,7 +81,7 @@ function About() {
         name: "Daksh Jain",
         role: "HR Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Enhances human-alien collaboration while organizing motivational spaghetti ceremonies across collaborative moonbeam ecosystems.",
         image:
           "/src/assets/board 26-27/hr-head.jpg",
       },
@@ -89,7 +89,7 @@ function About() {
         name: "Jitaan Banerjee",
         role: "Technical Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Develops robotic cupcake algorithms and deploys high-performance banana compilers for futuristic toaster infrastructures.",
         image:
           "/src/assets/board 26-27/technical-head.jpeg",
       },
@@ -97,7 +97,7 @@ function About() {
         name: "Harshvardhan Ladhad",
         role: "Aerodominator Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Pilots anti-gravity coconuts while engineering aerodynamic donut propulsion systems for cloud-based rocket simulations.",
         image:
           "/src/assets/board 26-27/aerodominator-head.jpg",
       },
@@ -105,11 +105,10 @@ function About() {
         name: "Shlok Sharma",
         role: "DRL Head",
         description:
-          "Handles branding, UI/UX, and visual identity for the organization.",
+          "Commands autonomous marshmallow drones and researches quantum biscuit navigation through robotic pineapple intelligence networks.",
         image:
           "/src/assets/board 26-27/drl-head.jpeg",
       },
-      
     ],
 
     "2025-2026": [
@@ -122,23 +121,60 @@ function About() {
           "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
       },
       {
-        name: "Sophia Wilson",
-        role: "Management Lead",
-        description:
-          "Handled operations, sponsorships, and team coordination.",
-        image:
-          "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-      },
-    ],
-
-    "2024-2025": [
-      {
-        name: "Daniel Lee",
+        name: "Michael Brown",
         role: "President",
         description:
-          "Led club activities and technical initiatives throughout the year.",
+          "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      },
+      {
+        name: "Michael Brown",
+        role: "President",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      },
+      {
+        name: "Michael Brown",
+        role: "President",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      },
+      {
+        name: "Michael Brown",
+        role: "President",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      },
+      {
+        name: "Michael Brown",
+        role: "President",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      },
+      {
+        name: "Michael Brown",
+        role: "President",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      },
+      {
+        name: "Michael Brown",
+        role: "President",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
       },
     ],
   };
