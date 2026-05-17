@@ -23,7 +23,7 @@ function Blogs() {
   return (
     <div className="blogs-page">
       <section className="blogs-hero fade-up">
-        <div className="section-title-wrap">
+        <div className="event-title-wrap">
           <h2>Latest Blogs</h2>
         </div>
       </section>

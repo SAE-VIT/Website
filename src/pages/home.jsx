@@ -106,10 +106,6 @@ function Home() {
       <section className="events-section fade-up delay-1">
         <div className="section-title-wrap">
           <h2>Recent Events</h2>
-          <p>
-            A quick look at the chapter calendar, recent events, and the kind
-            of energy members can expect through the semester.
-          </p>
         </div>
 
         <div className="sanity-events-grid">
@@ -178,29 +174,26 @@ function Home() {
 
       <section className="blogs-sec fade-up delay-1">
         <div className="section-title-wrap">
-          <h2>Latest Blogs</h2>
-          <p>
-            Explore technical insights, event recaps, student experiences, and ideas shared by members of the chapter.
-          </p>
+          <h2>Recent Blogs</h2>
         </div>
 
         <div className="sanity-events-grid">
-          {posts.map((post, index) => (
-            <div className="sanity-event-card" key={index}>
+          {posts.slice(0, 4).map((post, index) => (
+            <article className="sanity-event-card" key={index}>
               {post.image && (
-                  <img
-                    src={urlFor(post.image).width(250).url()}
-                    alt={post.title}
-                    className="sanity-event-image"
-                  />
+                <img
+                  src={urlFor(post.image).width(520).height(320).url()}
+                  alt={post.title}
+                  className="sanity-event-image"
+                />
               )}
-    
+
               <div className="sanity-event-body">
                 <span>{post.postDate}</span>
                 <h2>{post.title}</h2>
                 <p>{post.description}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -210,31 +203,6 @@ function Home() {
           </Link>
         </div>
       </section>
-
-      {/* <section className="content-section centered-section fade-up delay-2">
-        <div className="section-title-wrap">
-          <h2>Club Committee</h2>
-          <p>
-            Meet the members helping run the chapter, coordinate events, and
-            keep the club active across technical, creative, and outreach work.
-          </p>
-        </div>
-        <div className="committee-grid">
-          {committee.map((member) => (
-            <article className="committee-card hover-lift" key={member.name}>
-              <div className="committee-avatar">
-                <span>{member.name.split(" ").map((part) => part[0]).join("").slice(0, 2)}</span>
-              </div>
-              <h3>{member.name}</h3>
-              <p className="committee-role">{member.role}</p>
-              <p>
-                Supporting chapter operations, student engagement, and stronger
-                club culture across the academic year.
-              </p>
-            </article>
-          ))}
-        </div>
-      </section> */}
     </div>
   );
 }

@@ -24,13 +24,12 @@ function Events() {
 const upcomingEvents = events
   .filter((event) => event.isUpcoming)
   .sort((a, b) => new Date(a.date) - new Date(b.date));
-
-const generalEvents = events.filter((event) => !event.isUpcoming);
+const generalEvents = events;
 
   return (
     <div className="events-page">
       <section className="upcoming-events-section fade-up delay-1">
-        <div className="section-title-wrap">
+        <div className="event-title-wrap">
           <h2>Upcoming Events</h2>
         </div>
 
@@ -72,7 +71,7 @@ const generalEvents = events.filter((event) => !event.isUpcoming);
       </section>
 
       <section className="general-events-section fade-up delay-2">
-        <div className="section-title-wrap">
+        <div className="event-title-wrap">
           <h2>All Events</h2>
         </div>
 
