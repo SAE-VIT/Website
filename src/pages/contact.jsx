@@ -1,83 +1,105 @@
-import React, { useState } from "react";
+// Footer.jsx
 
-function Contact() {
+import "/src/index.css";
+import logo from "/src/assets/vitlogo.png";
 
-    const [formData, setFormData] = useState({
-        fullName: "",
-        email: "",
-        subject: "",
-        message: ""
-    });
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-column footer-brand">
+          <img
+            src={logo}
+            alt="SAE-VIT Logo"
+            className="footer-logo"
+          />
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-        alert("Form Submitted!");
-
-        setFormData({
-        fullName: "",
-        email: "",
-        subject: "",
-        message: ""
-        });
-    };
-
-    return (
-        <div className="contact">
-            
-            <div className="contact-det">
-                <h1>CONTACT</h1>
-                <p>Feel free to reach out anytime.</p>
-            </div>
-
-            <div className="contact-form">
-                <h1>CONTACT FORM</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Full Name"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="subject"
-                        placeholder="Subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                    />
-                    <textarea
-                        name="message"
-                        placeholder="Message"
-                        rows="4"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                    ></textarea>
-
-                    <button type="submit">Submit Message</button>
-                </form>
-            </div>
+          <p className="footer-tagline">
+            Vellore Institute of Technology, Vellore Campus
+          </p>
 
         </div>
-    );
+
+        <div className="footer-column">
+          <h3>Explore</h3>
+
+          <a href="/">Home</a>
+          <a href="/events">Events</a>
+          <a href="/blogs">Blogs</a>
+          <a href="/about">About</a>
+
+        </div>
+
+        <div className="footer-column">
+          <h3>Domains</h3>
+
+          <p>Design & Marketing</p>
+          <p>Editorial</p>
+          <p>Finance</p>
+          <p>Events</p>
+          <p>Outreach</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>Connect</h3>
+
+          <a href="mailto:sae@vit.ac.in">
+            Email
+          </a>
+
+          <a
+            href="https://instagram.com"
+            target="_blank"
+          >
+            Instagram
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com"
+            target="_blank"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div className="footer-line"></div>
+
+      <div className="footer-bottom">
+
+        <div className="footer-socials">
+          <a href="https://instagram.com" target="_blank">
+            <FaInstagram />
+          </a>
+
+          <a href="https://linkedin.com" target="_blank">
+            <FaLinkedin />
+          </a>
+
+          <a href="https://github.com" target="_blank">
+            <FaGithub />
+          </a>
+        </div>
+
+        <p>
+          © 2026 SAE-VIT. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
 }
 
-export default Contact;
+export default Footer;

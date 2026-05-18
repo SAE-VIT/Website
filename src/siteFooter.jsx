@@ -1,47 +1,76 @@
-import React from "react";
-import logo from '/src/assets/vitlogo.jpg';
-function SiteFooter() {
+// Footer.jsx
+
+import "/src/index.css";
+import logo from "/src/assets/vitlogo.png";
+
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
+
+function siteFooter() {
   return (
-    <>
-      <footer className="site-footer">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            <img src={logo} alt="VIT Logo" className="footer-logo" />
-            <span className="footer-span">© 2026 SAE-VIT. All rights reserved.</span>
-          </div>
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-column footer-brand">
+          <img
+            src={logo}
+            alt="SAE-VIT Logo"
+            className="footer-logo"
+          />
 
-          <div>
-            <h3>Quick links</h3>
-            <ul className="footer-links">
-              <li> <a href="https://www.instagram.com/sae_vit/" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a></li>
-              <li> <a href="https://www.youtube.com/@SAE_VIT" target="_blank" rel="noopener noreferrer">
-                Youtube
-              </a></li>
-              <li> <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
-                Linkedin
-              </a></li>
-            </ul>
-          </div>
+          <p className="footer-tagline">
+            Vellore Institute of Technology, Vellore Campus
+          </p>
+        </div>
 
-          <div>
-            <h3>Contact us</h3>
-            <ul className="footer-contact">
-              <li>VIT Vellore, Tamil Nadu</li>
-              <li>+91 90904 55545</li>
-              <li>📧sae@vit.ac.in</li>
-            </ul>
-          </div>
+        <div className="footer-column">
+          <h3>Explore</h3>
+
+          <a href="/">Home</a>
+          <a href="/events">Events</a>
+          <a href="/blogs">Blogs</a>
+          <a href="/about">About</a>
+
         </div>
-        <div className="footer-bottom">
-          <div className="footer-bottom-left">
-            Made with ❤️ by SAE-VIT
-          </div>
+
+        <div className="footer-column">
+          <h3>Domains</h3>
+
+          <p>Design & Marketing</p>
+          <p>Editorial</p>
+          <p>Finance</p>
+          <p>Events</p>
+          <p>Outreach</p>
         </div>
-      </footer>
-    </>
+
+        <div className="footer-column">
+          <h3>Contact</h3>
+
+          <a href="mailto:saevit@vit.ac.in"> saevit@vit.ac.in </a>
+          <p>VIT Vellore</p>
+          <p>Thiruvallam Road, Katpadi </p>
+          <p>Tamil Nadu - 632014</p>
+
+        </div>
+      </div>
+
+      <div className="footer-line"></div>
+
+      <div className="footer-bottom">
+        <div className="footer-socials">
+          <a href="https://instagram.com" target="_blank"> <FaInstagram /> </a>
+          <a href="https://linkedin.com" target="_blank"> <FaLinkedin /> </a>
+          <a href="https://youtube.com" target="_blank"> <FaGithub /> </a>
+        </div>
+
+        <p>
+          Made with ❤️ by SAE-VIT 
+        </p>
+      </div>
+    </footer>
   );
 }
 
-export default SiteFooter;
+export default siteFooter;

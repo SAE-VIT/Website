@@ -9,7 +9,6 @@ const navItems = [
   { href: "/events", label: "Events" },
   { href: "/blogs", label: "Blog" },
   { href: "/about", label: "About" },
-  { href: "https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRtsWDLpjvgVLZFCWHWDHMVSJlkHPZJccRvBZQQdsrWpWDJvbZhLKHqQZJFxLjxPdqVbNTG", label: "Contact us", external: true },
 ];
 
 function Navbar() {
