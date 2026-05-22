@@ -6,6 +6,31 @@ function Events() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
+    const revealItems = document.querySelectorAll(
+      ".events-page .scroll-reveal"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -80px",
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, [events.length]);
+
+  useEffect(() => {
     client
       .fetch(`
         *[_type == "event"] | order(date desc) {
@@ -28,18 +53,19 @@ const generalEvents = events;
 
   return (
     <div className="events-page">
-      <section className="upcoming-events-section fade-up delay-1">
-        <div className="event-title-wrap">
+      <section className="upcoming-events-section scroll-reveal">
+        <div className="event-title-wrap reveal-child">
           <h2>Upcoming Events</h2>
         </div>
 
         <div className="timeline-wrapper">
           {upcomingEvents.map((event, index) => (
             <article
-              className={`timeline-event ${
+              className={`timeline-event scroll-reveal ${
                 index % 2 !== 0 ? "reverse-event" : ""
               }`}
               key={index}
+              style={{ "--reveal-delay": `${index * 110}ms` }}
             >
               <div className="timeline-left">
                 <span className="timeline-tag">
@@ -70,16 +96,17 @@ const generalEvents = events;
         </div>
       </section>
 
-      <section className="general-events-section fade-up delay-2">
-        <div className="event-title-wrap">
+      <section className="general-events-section scroll-reveal">
+        <div className="event-title-wrap reveal-child">
           <h2>All Events</h2>
         </div>
 
         <div className="sanity-events-grid">
           {generalEvents.map((event, index) => (
             <article
-              className="sanity-event-card hover-lift"
+              className="sanity-event-card hover-lift scroll-reveal"
               key={index}
+              style={{ "--reveal-delay": `${(index % 4) * 90}ms` }}
             >
               {event.image && (
                 <img

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "/src/index.css";
 import saeTeam from "/src/assets/sae-team-2.jpeg";
 import chairImg from "/src/assets/board 26-27/chair.jpeg";
@@ -14,6 +14,12 @@ import hrHeadImg from "/src/assets/board 26-27/hr-head.jpg";
 import technicalHeadImg from "/src/assets/board 26-27/technical-head.jpeg";
 import aerodominatorHeadImg from "/src/assets/board 26-27/aerodominator-Head.jpg";
 import drlHeadImg from "/src/assets/board 26-27/drl-head.jpeg";
+import { MdEmail } from "react-icons/md";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa";
 
 function About() {
   const boards = {
@@ -24,6 +30,9 @@ function About() {
         description:
           "Coordinates quantum waffles while optimizing hyperdrive synergy across multidimensional pancake frameworks and orbital workflows.",
         image: chairImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Sakar Jog",
@@ -31,6 +40,9 @@ function About() {
         description:
           "Manages intergalactic spreadsheets and synchronizes cosmic bananas through parallel event vortex calibration systems.",
         image: secImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Netra Patel",
@@ -38,6 +50,9 @@ function About() {
         description:
           "Supervises turbo llamas and assists with holographic cloud engineering for ultra-efficient moonlight coordination protocols.",
         image: viceChairImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Swarali Upadhyay",
@@ -45,6 +60,9 @@ function About() {
         description:
           "Processes neon marshmallows while balancing encrypted jellybean logistics through advanced waffle communication matrices.",
         image: coSecretaryImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Bhupendra Singh",
@@ -52,6 +70,9 @@ function About() {
         description:
           "Optimizes flamingo propulsion engines and maintains operational smoothie equilibrium during hyperspace sandwich deployment cycles.",
         image: operationsManagerImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Dhritiman Goswami",
@@ -59,6 +80,9 @@ function About() {
         description:
           "Designs galactic taco festivals while orchestrating synchronized penguin launches across temporal confetti dimensions.",
         image: eventsHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Jacob Jiby",
@@ -66,6 +90,9 @@ function About() {
         description:
           "Communicates with invisible pineapples and negotiates rainbow-powered alliances through futuristic noodle transmission systems.",
         image: prHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Sanjeev",
@@ -73,6 +100,9 @@ function About() {
         description:
           "Curates interstellar alphabet soup while refining upside-down vocabulary structures for cosmic storytelling harmonization.",
         image: editorialHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Pulkit Gupta",
@@ -80,6 +110,9 @@ function About() {
         description:
           "Calculates potato-based economies and balances floating cryptocurrency muffins using advanced toaster analytics engines.",
         image: financeHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Daksh Jain",
@@ -87,6 +120,9 @@ function About() {
         description:
           "Enhances human-alien collaboration while organizing motivational spaghetti ceremonies across collaborative moonbeam ecosystems.",
         image: hrHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Jitaan Banerjee",
@@ -94,6 +130,9 @@ function About() {
         description:
           "Develops robotic cupcake algorithms and deploys high-performance banana compilers for futuristic toaster infrastructures.",
         image: technicalHeadImg,
+        email:"jitaanbanerjee@gmail.com",
+        linkedin:"https://www.linkedin.com/in/jitaan",
+        github:"https://github.com/Jitaan",
       },
       {
         name: "Harshvardhan Ladhad",
@@ -101,6 +140,9 @@ function About() {
         description:
           "Pilots anti-gravity coconuts while engineering aerodynamic donut propulsion systems for cloud-based rocket simulations.",
         image: aerodominatorHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
       {
         name: "Shlok Sharma",
@@ -108,6 +150,9 @@ function About() {
         description:
           "Commands autonomous marshmallow drones and researches quantum biscuit navigation through robotic pineapple intelligence networks.",
         image: drlHeadImg,
+        email:"",
+        linkedin:"",
+        github:"",
       },
     ],
 
@@ -181,16 +226,39 @@ function About() {
 
   const [selectedYear, setSelectedYear] = useState("2026-2027");
 
+  useEffect(() => {
+    const revealItems = document.querySelectorAll(".scroll-reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -80px",
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="about-page">
-      <section className="hero-section">
-        <div className="hero-image">
+      <section className="hero-section scroll-reveal">
+        <div className="hero-image reveal-child">
           <img
             src={saeTeam}
             alt="Team"
           />
         </div>
-        <div className="hero-content">
+        <div className="hero-content reveal-child" style={{ "--reveal-delay": "120ms" }}>
           <h1>What We Do ?</h1>
           <p>
             We are a student-led technical community focused on innovation,
@@ -203,12 +271,17 @@ function About() {
             Our mission is to create a strong tech culture where students can
             learn, build, network, and innovate together.
           </p>
+          <div className="footer-socials">
+            <a href="https://instagram.com/sae_vit" target="_blank"> <FaInstagram /> </a>
+            <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/posts/?feedView=all" target="_blank"> <FaLinkedin /> </a>
+            <a href="https://github.com/SAE-VIT" target="_blank"> <FaGithub /> </a>
+          </div>
         </div>
       </section>
 
-      <section className="board-section">
-        <h2>Board Members</h2>
-        <div className="tabs">
+      <section className="board-section scroll-reveal">
+        <h2 className="reveal-child">Board Members</h2>
+        <div className="tabs reveal-child" style={{ "--reveal-delay": "90ms" }}>
           {Object.keys(boards).map((year) => (
             <button
               key={year}
@@ -224,12 +297,20 @@ function About() {
 
         <div className="members-grid">
           {boards[selectedYear].map((member, index) => (
-            <div className="member-card" key={index}>
+            <div
+              className="member-card reveal-child"
+              key={index}
+              style={{ "--reveal-delay": `${(index % 4) * 90}ms` }}
+            >
               <img src={member.image} alt={member.name} />
               <div className="member-info">
                 <h3>{member.name}</h3>
                 <h4>{member.role}</h4>
-                <p>{member.description}</p>
+                <div className="footer-socials member-socials">
+                  <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer"> <MdEmail /> </a>
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer"> <FaLinkedin /> </a>
+                  <a href={member.github} target="_blank" rel="noopener noreferrer"> <FaGithub /> </a>
+                </div>
               </div>
             </div>
           ))}

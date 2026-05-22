@@ -21,6 +21,29 @@ const images = [
 function Home() {
   const [events, setEvents] = useState([]);
   const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    const revealItems = document.querySelectorAll(".scroll-reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -80px",
+      }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
   
   useEffect(() => {
     client.fetch(`
@@ -107,14 +130,18 @@ function Home() {
         </div>
       </section>
 
-      <section className="events-section fade-up delay-1">
-        <div className="section-title-wrap">
+      <section className="events-section scroll-reveal">
+        <div className="section-title-wrap reveal-child">
           <h2>Recent Events</h2>
         </div>
 
         <div className="sanity-events-grid">
           {events.slice(0, 4).map((event, index) => (
-            <article className="sanity-event-card" key={index}>
+            <article
+              className="sanity-event-card hover-lift reveal-child"
+              key={index}
+              style={{ "--reveal-delay": `${index * 90}ms` }}
+            >
               {event.image && (
                 <img
                   src={urlFor(event.image).width(520).height(320).url()}
@@ -132,15 +159,15 @@ function Home() {
           ))}
         </div>
 
-        <div className="center-action">
+        <div className="center-action reveal-child">
           <Link to="/events" className="secondary-button">
             View More Events
           </Link>
         </div>
       </section>
 
-      <section className="about-section fade-up">
-        <div className="section-title-wrap">
+      <section className="about-section scroll-reveal">
+        <div className="section-title-wrap reveal-child">
           <h2>About Us</h2>
 
           <p>
@@ -153,37 +180,41 @@ function Home() {
         </div>
 
         <div className="about-highlights">
-          <div className="about-card">
+          <div className="about-card reveal-child" style={{ "--reveal-delay": "90ms" }}>
             <h3>Workshops</h3>
             <p>Hands-on sessions focused on practical technical learning.</p>
           </div>
 
-          <div className="about-card">
+          <div className="about-card reveal-child" style={{ "--reveal-delay": "180ms" }}>
             <h3>Community</h3>
             <p>A collaborative environment for students across domains.</p>
           </div>
 
-          <div className="about-card">
+          <div className="about-card reveal-child" style={{ "--reveal-delay": "270ms" }}>
             <h3>Innovation</h3>
             <p>Encouraging creativity through projects and competitions.</p>
           </div>
         </div>
 
-        <div className="center-action">
+        <div className="center-action reveal-child">
           <Link to="/about" className="secondary-button">
             Learn More About Us
           </Link>
         </div>
       </section>
 
-      <section className="blogs-sec fade-up delay-1">
-        <div className="section-title-wrap">
+      <section className="blogs-sec scroll-reveal">
+        <div className="section-title-wrap reveal-child">
           <h2>Recent Blogs</h2>
         </div>
 
         <div className="sanity-events-grid">
           {posts.slice(0, 4).map((post, index) => (
-            <article className="sanity-event-card" key={index}>
+            <article
+              className="sanity-event-card reveal-child"
+              key={index}
+              style={{ "--reveal-delay": `${index * 90}ms` }}
+            >
               {post.image && (
                 <img
                   src={urlFor(post.image).width(520).height(320).url()}
@@ -201,7 +232,7 @@ function Home() {
           ))}
         </div>
 
-        <div className="center-action">
+        <div className="center-action reveal-child">
           <Link to="/blogs" className="secondary-button">
             View More Blogs
           </Link>
