@@ -35,6 +35,7 @@
   position: relative;
   overflow: visible;
   isolation: isolate;
+  font-size: 1.2rem;
   --gooey-pill: rgba(0, 0, 0, 0.74);
   --gooey-text: #a6b1bd;
   --gooey-active-text: #f1eee8;

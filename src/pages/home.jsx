@@ -3,24 +3,10 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { client } from '/src/sanityClient'
 import { urlFor } from '/src/imageBuilder'
-import OrbitImages from '/src/components/OrbitImages'
-
-const images = [
-  "https://picsum.photos/300/300?grayscale&random=1",
-  "https://picsum.photos/300/300?grayscale&random=2",
-  "https://picsum.photos/300/300?grayscale&random=3",
-  "https://picsum.photos/300/300?grayscale&random=4",
-  "https://picsum.photos/300/300?grayscale&random=5",
-  "https://picsum.photos/300/300?grayscale&random=6",
-  "https://picsum.photos/300/300?grayscale&random=5",
-  "https://picsum.photos/300/300?grayscale&random=4",
-  "https://picsum.photos/300/300?grayscale&random=3",
-  "https://picsum.photos/300/300?grayscale&random=2",
-];
 
 function Home() {
   const [events, setEvents] = useState([]);
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(".scroll-reveal");
@@ -58,7 +44,6 @@ function Home() {
     .catch((err) => console.error("SANITY ERROR:", err));
   }, []);
 
-
   useEffect(() => {
     client.fetch(`
         *[_type == "post"] {
@@ -76,63 +61,25 @@ function Home() {
 
   return (
     <div className="home-page light-page">
-      <section className="home-hero fade-up">
-        <div className="hero-copy-block">
-          <h1>
-            Empowering <span>Innovation</span> Through Engineering Culture
-          </h1>
-          <p>
-            Join a student community focused on automotive design, mobility
-            innovation, events, workshops, and chapter leadership at VIT.
-          </p>
-          <div className="hero-actions">
-            <Link to="/events" className="primary-button">
-              Register for our upcoming events
-            </Link>
-            <Link to="/about" className="secondary-button">
-              Learn more
-            </Link>
-          </div>
-          <div className="hero-meta-row">
-            <div>
-              <span className="meta-title">Active Since</span>
-              <strong>2014</strong>
-            </div>
-            <div>
-              <span className="meta-title">Active Members</span>
-              <strong>150+</strong>
-            </div>
-            <div>
-              <span className="meta-title">Domains</span>
-              <strong>5</strong>
-            </div>
-          </div>
+      <section className="car-hero" aria-labelledby="car-hero-title">
+        <div className="hero-capsules" aria-label="Society focus areas">
+          <span>300+ members</span>
+          <span>5 Domains</span>
+          <span>2x Elite Chapter</span>
         </div>
-
-        <div className="hero-photo-card fade-up delay-1">
-          <OrbitImages
-            className="home-orbit"
-            images={images}
-            shape="ellipse"
-            radiusX={640}
-            radiusY={170}
-            rotation={-8}
-            duration={30}
-            itemSize={112}
-            responsive={true}
-            radius={280}
-            direction="normal"
-            fill
-            showPath
-            pathColor="rgba(170, 162, 154, 0.38)"
-            paused={false}
-          />
-        </div>
+        <h1 id="car-hero-title">
+          Society of Automotive Engineers,
+          <span> VIT Vellore</span>
+        </h1>
+        <p>Driven by Innovation. Fueled by Success</p>
       </section>
 
       <section className="events-section scroll-reveal">
-        <div className="section-title-wrap reveal-child">
+        <div className="section-title-wrap section-heading-row reveal-child">
           <h2>Recent Events</h2>
+          <Link to="/events" className="secondary-button section-more-link">
+            View More Events
+          </Link>
         </div>
 
         <div className="sanity-events-grid">
@@ -159,53 +106,49 @@ function Home() {
           ))}
         </div>
 
-        <div className="center-action reveal-child">
-          <Link to="/events" className="secondary-button">
-            View More Events
-          </Link>
-        </div>
       </section>
 
       <section className="about-section scroll-reveal">
         <div className="section-title-wrap reveal-child">
-          <h2>About Us</h2>
+          <h2>Our Teams</h2>
 
           <p>
-            We are a student-driven community passionate about innovation,
-            engineering culture, mobility, and hands-on learning. Through
-            workshops, technical events, collaborative projects, and industry
-            exposure, we create opportunities for students to learn, build,
-            and grow together.
+            Our student teams bring together curious minds across engineering,
+            design, operations, and communications to turn ambitious ideas
+            into real automotive projects.
           </p>
         </div>
 
         <div className="about-highlights">
           <div className="about-card reveal-child" style={{ "--reveal-delay": "90ms" }}>
-            <h3>Workshops</h3>
-            <p>Hands-on sessions focused on practical technical learning.</p>
+            <h3>Technical</h3>
+            <p>Designing, analysing, and building automotive systems.</p>
           </div>
 
           <div className="about-card reveal-child" style={{ "--reveal-delay": "180ms" }}>
-            <h3>Community</h3>
-            <p>A collaborative environment for students across domains.</p>
+            <h3>Operations</h3>
+            <p>Making every event, collaboration, and initiative happen.</p>
           </div>
 
           <div className="about-card reveal-child" style={{ "--reveal-delay": "270ms" }}>
-            <h3>Innovation</h3>
-            <p>Encouraging creativity through projects and competitions.</p>
+            <h3>Media & Outreach</h3>
+            <p>Sharing our work and connecting the community to SAE-VIT.</p>
           </div>
         </div>
 
         <div className="center-action reveal-child">
           <Link to="/about" className="secondary-button">
-            Learn More About Us
+            Meet the Team
           </Link>
         </div>
       </section>
 
       <section className="blogs-sec scroll-reveal">
-        <div className="section-title-wrap reveal-child">
+        <div className="section-title-wrap section-heading-row reveal-child">
           <h2>Recent Blogs</h2>
+          <Link to="/blogs" className="secondary-button section-more-link">
+            View More Blogs
+          </Link>
         </div>
 
         <div className="sanity-events-grid">
@@ -232,11 +175,6 @@ function Home() {
           ))}
         </div>
 
-        <div className="center-action reveal-child">
-          <Link to="/blogs" className="secondary-button">
-            View More Blogs
-          </Link>
-        </div>
       </section>
     </div>
   );
