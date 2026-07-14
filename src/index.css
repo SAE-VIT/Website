@@ -179,6 +179,7 @@ main:has(.home-page) {
 
 .light-page {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .home-hero {
@@ -566,11 +567,52 @@ main:has(.home-page) {
   padding: 4.25rem var(--page-pad);
 }
 
-.about-highlights{
+.about-section .sanity-event-card {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.about-section .sanity-event-image {
+  aspect-ratio: 4 / 3;
+}
+
+.team-carousel {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.team-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: teamCarousel 24s linear infinite;
+  will-change: transform;
+}
+
+.team-carousel-group {
+  display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  padding-right: 1.5rem;
+}
+
+.team-carousel .sanity-event-card {
+  flex: 0 0 clamp(18rem, 26vw, 23rem);
+}
+
+.team-carousel .sanity-event-image {
+  object-fit: contain;
+  background: #101415;
+}
+
+.team-carousel:hover .team-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes teamCarousel {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .hover-lift {
@@ -609,7 +651,7 @@ main:has(.home-page) {
 
 .home-blogs-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
+  grid-template-columns: minmax(0, 0.98fr) minmax(22rem, 1.02fr);
   /* gap: clamp(2.5rem, 8vw, 8rem); */
   align-items: start;
 }
@@ -700,7 +742,7 @@ main:has(.home-page) {
 }
 
 .home-blog-item a {
-  color: #9ceaff;
+  color: #fff;
   font-size: 0.9rem;
   font-weight: 800;
   text-decoration: none;
@@ -811,6 +853,13 @@ main:has(.home-page) {
 .scroll-reveal.is-visible .sanity-event-card.reveal-child:hover,
 .sanity-event-card.scroll-reveal.is-visible:hover {
   transform: translateY(-4px) scale(1);
+}
+
+.scroll-reveal.is-visible .home-blog-item.reveal-child {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
 }
 
 .sanity-event-image {
@@ -1176,6 +1225,10 @@ main:has(.home-page) {
   background: var(--surface-band);
   margin: 0 calc(-1 * var(--page-pad));
   padding: 4.25rem var(--page-pad);
+}
+
+.home-page > section:not(.car-hero) {
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 
 .what-we-do-link {
@@ -1564,6 +1617,11 @@ main:has(.home-page) {
   .scroll-reveal,
   .reveal-child {
     opacity: 1;
+    transform: none;
+  }
+
+  .team-carousel-track {
+    animation: none;
     transform: none;
   }
 }

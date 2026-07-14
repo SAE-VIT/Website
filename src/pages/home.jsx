@@ -4,11 +4,76 @@ import { useEffect, useState } from 'react'
 import { client } from '/src/sanityClient'
 import { urlFor } from '/src/imageBuilder'
 import saeTeam from "/src/assets/sae-team-2.jpeg";
+import albatrossLogo from "/src/assets/Team logos/albatross.jpg";
+import falconsLogo from "/src/assets/Team logos/falcons.jpg";
+import jaabazLogo from "/src/assets/Team logos/jaabaz.jpg";
+import kshatriyaLogo from "/src/assets/Team logos/kshatriya.jpg";
+import kshatriyaElectricLogo from "/src/assets/Team logos/kshatriya electric.jpg";
+import ojasLogo from "/src/assets/Team logos/ojas.jpg";
+import pravegaLogo from "/src/assets/Team logos/pravega.jpg";
+import rotorLogo from "/src/assets/Team logos/rotor.jpg";
+import uttejitLogo from "/src/assets/Team logos/uttejit.jpg";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function Home() {
   const [events, setEvents] = useState([]);
   const [posts, setPosts] = useState([]);
+  const teamCards = [
+    {
+      title: "Team Assailing Falcons",
+      description: "Designing, analysing, and building automotive systems.",
+      image: falconsLogo,
+      alt: "Team Assailing Falcons logo",
+    },
+    {
+      title: "Team Ojas Racing",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: ojasLogo,
+      alt: "Team Ojas Racing logo",
+    },
+    {
+      title: "Team Pravega Racing",
+      description: "Sharing our work and connecting the community to SAE-VIT.",
+      image: pravegaLogo,
+      alt: "Team Pravega Racing logo",
+    },
+    {
+      title: "Team Kshatriya",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: kshatriyaLogo,
+      alt: "Team Kshatriya logo",
+    },
+    {
+      title: "Team Kshatriya Electric",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: kshatriyaElectricLogo,
+      alt: "Team Kshatriya Electric logo",
+    },
+    {
+      title: "Team Rotor FPV",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: rotorLogo,
+      alt: "Team Rotor FPV logo",
+    },
+    {
+      title: "Team Jaabaz",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: jaabazLogo,
+      alt: "Team Jaabaz logo",
+    },
+    {
+      title: "Team Uttejit",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: uttejitLogo,
+      alt: "Team Uttejit logo",
+    },
+    {
+      title: "Team Albatross",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: albatrossLogo,
+      alt: "Team Albatross logo",
+    },
+  ];
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(".scroll-reveal");
@@ -176,7 +241,7 @@ function Home() {
                 </div>
                 {post.mediumLink && (
                   <a href={post.mediumLink} target="_blank" rel="noopener noreferrer" aria-label={`Read ${post.title}`}>
-                    Read <span>→</span>
+                    Read More<span>→</span>
                   </a>
                 )}
               </article>
@@ -190,33 +255,27 @@ function Home() {
           <h2>Our Teams</h2>
 
           <p>
-            Our student teams bring together curious minds across engineering,
-            design, operations, and communications to turn ambitious ideas
-            into real automotive projects.
+            Driven by collaboration, our student teams span engineering, design, operations, and communications, 
+            turning ambitious ideas into impactful automotive projects.
           </p>
         </div>
 
-        <div className="about-highlights">
-          <div className="about-card reveal-child" style={{ "--reveal-delay": "90ms" }}>
-            <h3>Technical</h3>
-            <p>Designing, analysing, and building automotive systems.</p>
+        <div className="team-carousel reveal-child">
+          <div className="team-carousel-track">
+            {[0, 1].map((copyIndex) => (
+              <div className="team-carousel-group" key={copyIndex} aria-hidden={copyIndex === 1}>
+                {teamCards.map((team) => (
+                  <article className="sanity-event-card" key={`${copyIndex}-${team.title}`}>
+                    <img className="sanity-event-image" src={team.image} alt={copyIndex === 1 ? "" : team.alt} />
+                    <div className="sanity-event-body">
+                      <h2>{team.title}</h2>
+                      <p>{team.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ))}
           </div>
-
-          <div className="about-card reveal-child" style={{ "--reveal-delay": "180ms" }}>
-            <h3>Operations</h3>
-            <p>Making every event, collaboration, and initiative happen.</p>
-          </div>
-
-          <div className="about-card reveal-child" style={{ "--reveal-delay": "270ms" }}>
-            <h3>Media & Outreach</h3>
-            <p>Sharing our work and connecting the community to SAE-VIT.</p>
-          </div>
-        </div>
-
-        <div className="center-action reveal-child">
-          <Link to="/about" className="secondary-button">
-            Meet the Team
-          </Link>
         </div>
       </section>
     </div>
