@@ -16,12 +16,17 @@ import aerodominatorHeadImg from "/src/assets/board 26-27/aerodominator-Head.jpg
 import drlHeadImg from "/src/assets/board 26-27/drl-head.jpeg";
 import { MdEmail } from "react-icons/md";
 import {
-  FaInstagram,
   FaLinkedin,
   FaGithub,
 } from "react-icons/fa";
 
 function About() {
+  const facultyCoordinators = [
+    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: saeTeam, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: saeTeam, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: saeTeam, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+  ];
+
   const boards = {
     "2026-2027": [
       {
@@ -225,6 +230,15 @@ function About() {
   };
 
   const [selectedYear, setSelectedYear] = useState("2026-2027");
+  const [selectedFaculty, setSelectedFaculty] = useState(0);
+
+  const showPreviousFaculty = () => {
+    setSelectedFaculty((current) => (current - 1 + facultyCoordinators.length) % facultyCoordinators.length);
+  };
+
+  const showNextFaculty = () => {
+    setSelectedFaculty((current) => (current + 1) % facultyCoordinators.length);
+  };
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(".scroll-reveal");
@@ -251,31 +265,30 @@ function About() {
 
   return (
     <div className="about-page">
-      <section className="hero-section scroll-reveal">
-        <div className="hero-image reveal-child">
-          <img
-            src={saeTeam}
-            alt="Team"
-          />
+      <section className="faculty-section scroll-reveal" aria-labelledby="faculty-title">
+        <div className="faculty-heading reveal-child">
+          <h2 id="faculty-title">Faculty Coordinators</h2>
         </div>
-        <div className="hero-content reveal-child" style={{ "--reveal-delay": "120ms" }}>
-          <h1>What We Do ?</h1>
-          <p>
-            We are a student-led technical community focused on innovation,
-            collaboration, and continuous learning. Through workshops,
-            hackathons, projects, and open-source contributions, we help
-            students grow in domains like web development, AI/ML, cybersecurity,
-            and competitive programming.
-          </p>
-          <p>
-            Our mission is to create a strong tech culture where students can
-            learn, build, network, and innovate together.
-          </p>
-          <div className="footer-socials">
-            <a href="https://instagram.com/sae_vit" target="_blank"> <FaInstagram /> </a>
-            <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/posts/?feedView=all" target="_blank"> <FaLinkedin /> </a>
-            <a href="https://github.com/SAE-VIT" target="_blank"> <FaGithub /> </a>
+
+        <article className="faculty-card reveal-child" style={{ "--reveal-delay": "90ms" }}>
+          <div className="faculty-image">
+            <img src={facultyCoordinators[selectedFaculty].image} alt={facultyCoordinators[selectedFaculty].name} />
           </div>
+          <div className="faculty-copy">
+            <h3>{facultyCoordinators[selectedFaculty].name}</h3>
+            <span className="faculty-position">{facultyCoordinators[selectedFaculty].position}</span>
+            <p className="faculty-school">{facultyCoordinators[selectedFaculty].school}</p>
+            <span>{facultyCoordinators[selectedFaculty].note}</span>
+            <div className="footer-socials faculty-socials">
+              <a href={`mailto:${facultyCoordinators[selectedFaculty].email}`} aria-label={`Email ${facultyCoordinators[selectedFaculty].name}`}><MdEmail /></a>
+              <a href={facultyCoordinators[selectedFaculty].linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${facultyCoordinators[selectedFaculty].name} on LinkedIn`}><FaLinkedin /></a>
+            </div>
+          </div>
+        </article>
+        <div className="faculty-controls reveal-child" style={{ "--reveal-delay": "150ms" }}>
+          <span className="faculty-pagination">{selectedFaculty + 1} / {facultyCoordinators.length}</span>
+          <button type="button" onClick={showPreviousFaculty} aria-label="Show previous faculty coordinator">←</button>
+          <button type="button" onClick={showNextFaculty} aria-label="Show next faculty coordinator">→</button>
         </div>
       </section>
 

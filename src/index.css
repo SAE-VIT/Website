@@ -64,6 +64,8 @@ html, body, #root {
   max-width: 100%;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
   background: var(--background);
   color: var(--text);
@@ -285,6 +287,32 @@ main:has(.home-page) {
 }
 
 .car-hero h1 span { color: #3cccf7; white-space: nowrap; }
+
+.scroll-to-reveal {
+  position: absolute;
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #9ceaff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.scroll-to-reveal span {
+  font-size: 1.2rem;
+  line-height: 1;
+  animation: scrollPrompt 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollPrompt {
+  50% { transform: translateY(0.35rem); }
+}
 
 .hero-capsules {
   display: flex;
@@ -533,6 +561,7 @@ main:has(.home-page) {
 }
 
 .about-section{
+  background: var(--surface);
   margin: 0 calc(-1 * var(--page-pad));
   padding: 4.25rem var(--page-pad);
 }
@@ -565,7 +594,7 @@ main:has(.home-page) {
 .events-section {
   display: flex;
   flex-direction: column;
-  background: var(--surface-band);
+  background: var(--surface);
   margin: 0 calc(-1 * var(--page-pad));
   padding: 4.25rem var(--page-pad);
 }
@@ -576,6 +605,111 @@ main:has(.home-page) {
   background: var(--surface-band);
   margin: 0 calc(-1 * var(--page-pad));
   padding: 4.25rem var(--page-pad);
+}
+
+.home-blogs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
+  /* gap: clamp(2.5rem, 8vw, 8rem); */
+  align-items: start;
+}
+
+.home-blogs-intro {
+  max-width: 40rem;
+}
+
+.home-blogs-eyebrow {
+  color: #5cc9ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-blogs-intro h2 {
+  margin: 0.7rem 0 1rem;
+  color: #f3f4f6;
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.home-blogs-intro p {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.home-blogs-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-blogs-stack > h3 {
+  margin: 0;
+  padding-bottom: 1.2rem;
+  color: #f3f4f6;
+  font-size: 1.25rem;
+}
+
+.home-blog-item {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--border);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.home-blog-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.home-blog-item:hover {
+  border-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
+  transform: translateY(-4px);
+}
+
+.scroll-reveal.is-visible .home-blog-item.reveal-child:hover {
+  transform: translateY(-4px) scale(1);
+}
+
+.home-blog-number,
+.home-blog-date {
+  color: #8b969b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.home-blog-date {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.home-blog-item h4 {
+  margin: 0;
+  color: #e7ebec;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.home-blog-item a {
+  color: #9ceaff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-blog-item a:hover,
+.home-blog-item a:focus-visible {
+  color: #fff;
 }
 
 .events-section .sanity-events-grid,
@@ -1038,6 +1172,51 @@ main:has(.home-page) {
   font-size: 1rem;
 }
 
+.home-page .what-we-do-section {
+  background: var(--surface-band);
+  margin: 0 calc(-1 * var(--page-pad));
+  padding: 4.25rem var(--page-pad);
+}
+
+.what-we-do-link {
+  margin-top: 1.25rem;
+}
+
+.faculty-section {
+  width: 100%;
+  margin: 0 0 clamp(4rem, 8vw, 6.25rem);
+}
+
+.faculty-heading { margin-bottom: 1.5rem; }
+.faculty-heading > span { color: #3cccf7; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.15em; }
+.faculty-heading h2 { margin: 0.5rem 0 0; color: #f3f4f6; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.05; }
+
+.faculty-card {
+  display: grid;
+  grid-template-columns: minmax(0, 21rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(4rem, 1vw, 0.85rem);
+  width: 100%;
+  height: clamp(15rem, 25vw, 20rem);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border: 1px solid rgba(95, 215, 251, 0.2);
+  border-radius: 24px;
+  background: #181818;
+}
+
+.faculty-image { width: 100%; height: 100%; max-width: 21rem; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid rgba(95, 215, 251, 0.22); border-radius: 16px; background: #111718; }
+.faculty-image img { width: 100%; height: 100%; object-fit: cover; }
+.faculty-copy h3 { margin: 0; color: #f3f4f6; font-size: clamp(1.6rem, 3vw, 2.9rem); line-height: 1.05; }
+.faculty-copy > span { display: block; max-width: 38rem; margin-top: 0.85rem; color: #aab4b9; font-size: 0.94rem; }
+.faculty-copy .faculty-position { display: inline-flex; margin-top: 0.75rem; padding: 0.3rem 0.6rem; border: 1px solid rgba(95, 215, 251, 0.35); border-radius: 999px; background: rgba(60, 204, 247, 0.1); color: #91e6ff; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.faculty-copy .faculty-school { margin: 0.65rem 0 0; color: #d2dadd; font-size: 0.88rem; font-weight: 600; }
+.faculty-socials { margin-top: 1rem; }
+.faculty-socials a { width: 2.35rem; height: 2.35rem; border: 1px solid rgba(95, 215, 251, 0.26); background: rgba(60, 204, 247, 0.08); }
+.faculty-controls { display: flex; justify-content: flex-end; gap: 0.7rem; margin-top: 1rem; }
+.faculty-pagination { align-self: center; margin-right: 0.45rem; color: #9ceaff; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; }
+.faculty-controls button { display: grid; width: 3rem; height: 3rem; place-items: center; border: 1px solid rgba(95, 215, 251, 0.34); border-radius: 50%; background: rgba(35, 155, 198, 0.12); color: #b7f0ff; cursor: pointer; font-size: 1.35rem; transition: background 180ms ease, transform 180ms ease; }
+.faculty-controls button:hover, .faculty-controls button:focus-visible { background: rgba(48, 198, 244, 0.28); transform: translateY(-2px); }
+
 .board-section h2 {
   font-size: 2.5rem;
   margin-bottom: 35px;
@@ -1291,6 +1470,13 @@ main:has(.home-page) {
     flex-direction: column;
   }
 
+  .faculty-card {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .faculty-image { height: auto; max-height: 16rem; justify-self: center; }
+
   .hero-content h1 {
     font-size: 2.3rem;
   }
@@ -1312,6 +1498,14 @@ main:has(.home-page) {
 
   .blog-date {
     padding-top: 0;
+  }
+
+  .home-blogs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-blogs-intro {
+    max-width: 42rem;
   }
 }
 

@@ -4,16 +4,21 @@ import Blogs from './pages/blogs.jsx'
 import Events from './pages/events.jsx'
 import About from './pages/about.jsx'
 import SiteFooter from './siteFooter.jsx'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function App(){
   const [isLoading, setIsLoading] = useState(true);
   const [isExitingLoader, setIsExitingLoader] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const exitTimer = window.setTimeout(() => setIsExitingLoader(true), 900);
-    const removeTimer = window.setTimeout(() => setIsLoading(false), 1250);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  useEffect(() => {
+    const exitTimer = window.setTimeout(() => setIsExitingLoader(true), 1650);
+    const removeTimer = window.setTimeout(() => setIsLoading(false), 2000);
 
     return () => {
       window.clearTimeout(exitTimer);
