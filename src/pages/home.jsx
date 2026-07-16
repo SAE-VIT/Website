@@ -156,11 +156,11 @@ function Home() {
 
   return (
     <div className="home-page light-page">
-      <section className="car-hero" aria-labelledby="car-hero-title">
+      <section id="home" className="car-hero" aria-labelledby="car-hero-title">
         <div className="hero-capsules" aria-label="Society focus areas">
           <span>300+ members</span>
           <span>5 Domains</span>
-          <span>2x Elite Chapter</span>
+          <span>3x Elite Chapter</span>
         </div>
         <h1 id="car-hero-title">
           Society of Automotive Engineers,
@@ -172,7 +172,7 @@ function Home() {
         </a>
       </section>
 
-      <section className="hero-section what-we-do-section scroll-reveal">
+      <section id="about" className="hero-section what-we-do-section scroll-reveal">
         <div className="hero-image reveal-child">
           <img src={saeTeam} alt="SAE-VIT team" />
         </div>
@@ -234,7 +234,7 @@ function Home() {
 
       </section>
 
-      <section className="blogs-sec scroll-reveal">
+      <section id="blogs" className="blogs-sec scroll-reveal">
         <div className="home-blogs-layout">
           <div className="home-blogs-intro reveal-child">
             <h2>The SAE Journal</h2>
@@ -278,7 +278,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="about-section scroll-reveal">
+      <section id="teams" className="about-section scroll-reveal">
         <div className="section-title-wrap reveal-child">
           <h2>Engineering Teams</h2>
           {/* <p>

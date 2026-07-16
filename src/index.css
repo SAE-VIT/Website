@@ -6,6 +6,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 :root {
   font-family: "Manrope", system-ui, sans-serif;
   color: #d7d4ce;
@@ -64,7 +72,10 @@ html, body, #root {
   max-width: 100%;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
 
 body {
   background: var(--background);
@@ -83,7 +94,12 @@ img {
 
 .app-shell {
   min-height: 100vh;
-  background: var(--background);
+  background-color: var(--background);
+  background-image: linear-gradient(rgba(20, 24, 25, 0.5), rgba(20, 24, 25, 0.5)), url("./assets/hero-topographic.png");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: 125% auto;
+  background-attachment: scroll;
   overflow-x: clip;
 }
 
@@ -139,7 +155,8 @@ img {
   top: 0;
   z-index: 10;
   display: flex;
-  background: rgba(20, 24, 25, 0.96);
+  /* background: rgba(20, 24, 25, 0.96); */
+  background-color: transparent;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -259,25 +276,27 @@ main:has(.home-page) {
   justify-content: center;
   min-height: calc(100svh - 100px);
   margin: 0 calc(-1 * var(--page-pad));
-  padding: clamp(2rem, 7vw, 7rem) var(--page-pad);
+  padding: clamp(2rem, 7vw, 7rem) clamp(0.75rem, 2vw, 1.5rem);
   overflow: hidden;
   gap: 4rem;
 }
 
 .car-hero h1 {
-  max-width: 16ch;
-  margin: 0;
+  width: min(100%, 20ch);
+  max-width: 20ch;
+  margin: 0 auto;
   color: #f2f5f5;
   font-family: "Geist Variable", "Manrope", sans-serif;
-  font-size: clamp(3.35rem, 9.4vw, 10rem);
+  font-size: clamp(5rem, 10vw, 20rem);
   font-weight: 550;
   line-height: 0.9;
   letter-spacing: -0.085em;
   text-align: center;
+  text-wrap: balance;
 }
 
 .car-hero p {
-  max-width: 32rem;
+  max-width: 40rem;
   margin: 0 auto;
   color: #aab4b9;
   font-size: 1.2rem;
@@ -469,7 +488,7 @@ main:has(.home-page) {
 .team-carousel-track {
   display: flex;
   width: max-content;
-  animation: teamCarousel 24s linear infinite;
+  animation: teamCarousel 30s linear infinite;
   will-change: transform;
 }
 
@@ -1026,6 +1045,14 @@ main:has(.home-page) {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Use one continuous backdrop instead of alternating landing-section surfaces. */
+.home-page .what-we-do-section,
+.home-page .events-section,
+.home-page .blogs-sec,
+.home-page .about-section {
+  background: transparent;
+}
+
 .hero-section {
   display: flex;
   gap: clamp(2rem, 4vw, 3.125rem);
@@ -1064,13 +1091,17 @@ main:has(.home-page) {
 }
 
 .home-page .what-we-do-section {
-  background: var(--surface-band);
+  background: transparent;
   margin: 0 calc(-1 * var(--page-pad));
   padding: 4.25rem var(--page-pad);
 }
 
 .home-page > section:not(.car-hero) {
   padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.home-page > section:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.025);
 }
 
 .what-we-do-link {
