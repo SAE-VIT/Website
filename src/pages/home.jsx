@@ -17,91 +17,99 @@ import revMechanicsLogo from "/src/assets/Team logos/rev mechanics.jpg";
 import rotorLogo from "/src/assets/Team logos/rotor.jpg";
 import uttejitLogo from "/src/assets/Team logos/uttejit.jpg";
 import vimaanasLogo from "/src/assets/Team logos/vimaanas.jpg";
+import sponsor1 from "/src/assets/sponsors/1.png";
+import sponsor2 from "/src/assets/sponsors/2.png";
+import sponsor3 from "/src/assets/sponsors/3.png";
+import sponsor4 from "/src/assets/sponsors/4.png";
+import sponsor5 from "/src/assets/sponsors/5.png";
+import sponsor6 from "/src/assets/sponsors/6.png";
+import sponsor7 from "/src/assets/sponsors/7.png";
+import sponsor8 from "/src/assets/sponsors/8.png";
+import sponsor9 from "/src/assets/sponsors/9.png";
+import sponsor10 from "/src/assets/sponsors/10.png";
+import sponsor11 from "/src/assets/sponsors/11.png";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function Home() {
   const [events, setEvents] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [teamData, setTeamData] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState(null);
+  const pastSponsors = [
+    sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
+    sponsor7, sponsor8, sponsor9, sponsor10, sponsor11,
+  ].map((image, index) => ({ id: index + 1, image }));
   const teamCards = [
     {
-      title: "Team Assailing Falcons",
-      description: "Designing, analysing, and building automotive systems.",
+      id: "assailing-falcons",
       image: falconsLogo,
       alt: "Team Assailing Falcons logo",
     },
     {
-      title: "Team Ojas Racing",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "ojas-racing",
       image: ojasLogo,
       alt: "Team Ojas Racing logo",
     },
     {
-      title: "Team Pravega Racing",
-      description: "Sharing our work and connecting the community to SAE-VIT.",
+      id: "pravega-racing",
       image: pravegaLogo,
       alt: "Team Pravega Racing logo",
     },
     {
-      title: "Team Kshatriya",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "kshatriya",
       image: kshatriyaLogo,
       alt: "Team Kshatriya logo",
     },
     {
-      title: "Team Kshatriya Electric",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "kshatriya-electric",
       image: kshatriyaElectricLogo,
       alt: "Team Kshatriya Electric logo",
     },
     {
-      title: "Team Rotor FPV",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "rotor-fpv",
       image: rotorLogo,
       alt: "Team Rotor FPV logo",
     },
     {
-      title: "Team Jaabaz",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "jaabaz",
       image: jaabazLogo,
       alt: "Team Jaabaz logo",
     },
     {
-      title: "Team Uttejit",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "uttejit",
       image: uttejitLogo,
       alt: "Team Uttejit logo",
     },
     {
-      title: "Team Albatross",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "albatross",
       image: albatrossLogo,
       alt: "Team Albatross logo",
     },
     {
-      title: "Team Asena Racing",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "asena-racing",
       image: asenaLogo,
       alt: "Team Asena Racing logo",
     },
     {
-      title: "Team Rev Mechanics",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "rev-mechanics",
       image: revMechanicsLogo,
       alt: "Team Rev Mechanics logo",
     },
     {
-      title: "Team Celerity",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "celerity",
       image: celerityLogo,
       alt: "Team Celerity logo",
     },
     {
-      title: "Team Vimaanas",
-      description: "Making every event, collaboration, and initiative happen.",
+      id: "vimaanas",
       image: vimaanasLogo,
       alt: "Team Vimaanas logo",
     },
   ];
+
+  const teamDataMap = Object.fromEntries(
+    teamData.map((team) => [team.carouselId, team])
+  );
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(".scroll-reveal");
@@ -153,6 +161,30 @@ function Home() {
       })
       .catch((err) => console.error('SANITY ERROR:', err))
   }, []);
+
+  useEffect(() => {
+    client.fetch(`
+      *[_type == "teamModal"]{
+        carouselId,
+        title,
+        description,
+        achievements
+      }
+    `)
+    .then((data) => setTeamData(data))
+    .catch((err) => console.error("SANITY ERROR:", err));
+  }, []);
+
+  useEffect(() => {
+    if (!selectedTeam) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setSelectedTeam(null);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [selectedTeam]);
 
   return (
     <div className="home-page light-page">
@@ -291,20 +323,121 @@ function Home() {
           <div className="team-carousel-track">
             {[0, 1].map((copyIndex) => (
               <div className="team-carousel-group" key={copyIndex} aria-hidden={copyIndex === 1}>
-                {teamCards.map((team) => (
-                  <article className="sanity-event-card" key={`${copyIndex}-${team.title}`}>
-                    <img className="sanity-event-image" src={team.image} alt={copyIndex === 1 ? "" : team.alt} />
-                    <div className="sanity-event-body">
-                      <h2>{team.title}</h2>
-                      <p>{team.description}</p>
-                    </div>
-                  </article>
-                ))}
+                {teamCards.map((team) => {
+                  const teamInfo = teamDataMap[team.id];
+
+                  return (
+                    <article
+                      className="sanity-event-card team-card"
+                      key={`${copyIndex}-${team.id}`}
+                      role="button"
+                      tabIndex={copyIndex === 0 ? 0 : -1}
+                      aria-label={`View details for ${teamInfo?.title || team.id}`}
+                      onClick={() =>
+                        setSelectedTeam({
+                          ...team,
+                          ...teamInfo,
+                        })
+                      }
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          setSelectedTeam({
+                            ...team,
+                            ...teamInfo,
+                          });
+                        }
+                      }}
+                    >
+                      <img
+                        className="sanity-event-image"
+                        src={team.image}
+                        alt={copyIndex === 1 ? "" : team.alt}
+                      />
+
+                      <div className="sanity-event-body">
+                        <h2>{teamInfo?.title || "Loading..."}</h2>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <section id="sponsors" className="sponsors-section scroll-reveal" aria-labelledby="sponsors-title">
+        <div className="section-title-wrap reveal-child">
+          <h2 id="sponsors-title">Past Sponsors</h2>
+        </div>
+
+        <div className="sponsors-featured-grid">
+          {pastSponsors.slice(0, 3).map((sponsor, index) => (
+            <article className="sponsor-logo sponsor-logo--featured reveal-child" key={sponsor.id} style={{ "--reveal-delay": `${index * 80}ms` }}>
+              <img src={sponsor.image} alt="Past sponsor logo" />
+            </article>
+          ))}
+        </div>
+
+        <div className="sponsors-grid">
+          {pastSponsors.slice(3).map((sponsor, index) => (
+            <article className="sponsor-logo reveal-child" key={sponsor.id} style={{ "--reveal-delay": `${(index + 3) * 55}ms` }}>
+              <img src={sponsor.image} alt="Past sponsor logo" />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {selectedTeam && (
+        <div className="team-modal-backdrop" role="presentation" onMouseDown={() => setSelectedTeam(null)}>
+          <section
+            className="team-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="team-modal-title"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <button
+              className="team-modal__close"
+              type="button"
+              onClick={() => setSelectedTeam(null)}
+              aria-label="Close team details"
+            >
+              ×
+            </button>
+
+            {/* Top Row */}
+            <img className="team-modal__logo" src={selectedTeam.image} alt="" />
+
+            <div>
+              <p className="team-modal__eyebrow">Engineering Team</p>
+              <h2 id="team-modal-title">{selectedTeam.title}</h2>
+            </div>
+
+            {/* Bottom Content */}
+            <div className="team-modal__content">
+              <p className="team-modal__description">
+                {selectedTeam.description}
+              </p>
+
+              <h3>Achievements</h3>
+
+              {selectedTeam.achievements?.length ? (
+                <ul>
+                  {selectedTeam.achievements.map((achievement, index) => (
+                    <li key={index}>{achievement}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="team-modal__empty">
+                  Achievements and team milestones will be added here.
+                </p>
+              )}
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }

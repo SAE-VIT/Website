@@ -274,9 +274,12 @@ main:has(.home-page) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
   min-height: calc(100svh - 100px);
-  margin: 0 calc(-1 * var(--page-pad));
+  margin: 0;
+  margin-left: 50%;
   padding: clamp(2rem, 7vw, 7rem) clamp(0.75rem, 2vw, 1.5rem);
+  transform: translateX(-50%);
   overflow: hidden;
   gap: 4rem;
 }
@@ -502,6 +505,9 @@ main:has(.home-page) {
   flex: 0 0 clamp(18rem, 26vw, 23rem);
 }
 
+.team-card { cursor: pointer; }
+.team-card:focus-visible { outline: 2px solid #9ceaff; outline-offset: 4px; }
+
 .team-carousel .sanity-event-image {
   object-fit: contain;
   background: #101415;
@@ -530,7 +536,7 @@ main:has(.home-page) {
   flex-direction: column;
   background: var(--surface);
   margin: 0 calc(-1 * var(--page-pad));
-  padding: 4.25rem var(--page-pad);
+  padding: 7.25rem var(--page-pad);
 }
 
 .blogs-sec{
@@ -538,7 +544,7 @@ main:has(.home-page) {
   flex-direction: column;
   background: var(--surface-band);
   margin: 0 calc(-1 * var(--page-pad));
-  padding: 4.25rem var(--page-pad);
+  padding: 7.25rem var(--page-pad);
 }
 
 .home-blogs-layout {
@@ -564,6 +570,129 @@ main:has(.home-page) {
   color: var(--muted);
   font-size: 1.2rem;
   line-height: 1.8;
+}
+
+.team-modal-backdrop {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(5, 8, 9, 0.74);
+  backdrop-filter: blur(8px);
+}
+
+.team-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+
+  width: min(100%, 52rem);
+  max-height: min(42rem, calc(100svh - 2.5rem));
+  overflow-y: auto;
+
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border: 1px solid rgba(156, 234, 255, 0.28);
+  background: #151a1b;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+.team-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.85rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.team-modal__logo {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  align-self: start;
+  justify-self: center;
+
+  border: 1px solid rgba(255,255,255,.1);
+  background: #0f1314;
+}
+
+.team-modal__eyebrow { margin: 0 0 0.55rem; color: #9ceaff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+.team-modal h2 { margin: 0; color: #f3f4f6; font-size: clamp(1.8rem, 4vw, 2.75rem); line-height: 1.05; }
+.team-modal__description { margin: 0.7rem 0 0.8rem; color: #c1cacc; line-height: 1.7; }
+.team-modal h3 { margin: 0 0 0.65rem; color: #f3f4f6; font-size: 1rem; }
+.team-modal ul { margin: 0; padding-left: 1.15rem; color: #c1cacc; }
+.team-modal__empty { margin: 0; color: #9aa7aa; font-size: 0.92rem; }
+
+@media (max-width: 620px) {
+  .team-modal { grid-template-columns: 1fr; gap: 1.25rem; padding-top: 3.5rem; }
+  .team-modal__logo { width: min(100%, 13rem); }
+}
+
+.sponsors-section {
+  margin: 0 calc(-1 * var(--page-pad));
+  padding: clamp(3rem, 6vw, 5.25rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.sponsors-section .section-title-wrap { margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+.sponsors-section .section-title-wrap h2 { margin: 0; }
+.sponsors-section .section-title-wrap p { max-width: 34rem; margin: 0.65rem 0 0; }
+
+.sponsors-featured-grid,
+.sponsors-grid {
+  display: grid;
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+}
+
+.sponsors-featured-grid {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(0.8rem, 1.6vw, 1.4rem);
+}
+
+.sponsors-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.sponsor-logo {
+  display: flex;
+  min-height: clamp(6.25rem, 10vw, 8.5rem);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(15, 19, 20, 0.28);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.sponsor-logo--featured {
+  flex: 0 0 calc(25% - 1rem);
+  min-height: clamp(6.25rem, 10vw, 8.5rem);
+}
+
+.sponsor-logo img {
+  width: min(72%, 11rem);
+  max-height: 62%;
+  object-fit: contain;
+}
+
+.sponsor-logo:hover {
+  border-color: rgba(146, 223, 246, 0.66);
+  background: rgba(45, 110, 130, 0.16);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 640px) {
+  .sponsors-featured-grid { display: grid; grid-template-columns: 1fr; }
+  .sponsors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsor-logo--featured { flex-basis: auto; }
 }
 
 .home-blogs-stack {
@@ -1057,7 +1186,7 @@ main:has(.home-page) {
   display: flex;
   gap: clamp(2rem, 4vw, 3.125rem);
   align-items: center;
-  margin-bottom: clamp(4rem, 8vw, 6.25rem);
+  margin-bottom: clamp(4rem, 8vw, 7.25rem);
   flex-wrap: wrap;
 }
 
@@ -1093,7 +1222,7 @@ main:has(.home-page) {
 .home-page .what-we-do-section {
   background: transparent;
   margin: 0 calc(-1 * var(--page-pad));
-  padding: 4.25rem var(--page-pad);
+  padding: 7.25rem var(--page-pad);
 }
 
 .home-page > section:not(.car-hero) {
@@ -1104,18 +1233,32 @@ main:has(.home-page) {
   background-color: rgba(255, 255, 255, 0.025);
 }
 
+.home-page .what-we-do-section,
+.home-page .events-section,
+.home-page .blogs-sec {
+  padding-inline: clamp(1.5rem, 5vw, 4.5rem);
+}
+
 .what-we-do-link {
   margin-top: 1.25rem;
 }
 
 .faculty-section {
   width: 100%;
-  margin: 0 0 clamp(4rem, 8vw, 6.25rem);
+  margin: 0 0 clamp(4rem, 8vw, 7.25rem);
 }
 
 .faculty-heading { margin-bottom: 1.5rem; }
 .faculty-heading > span { color: #3cccf7; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.15em; }
-.faculty-heading h2 { margin: 0.5rem 0 0; color: #f3f4f6; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.05; }
+.faculty-heading h2 { margin: 0.5rem 0 0; color: #f3f4f6; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.05; margin-bottom: 60px; }
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.875rem);
+  width: min(100%, 58rem);
+  margin: 0 auto;
+}
 
 .faculty-card {
   display: grid;
@@ -1194,7 +1337,7 @@ main:has(.home-page) {
 
 .members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16.25rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.25rem), 1fr));
   gap: clamp(1.25rem, 2.5vw, 1.875rem);
   align-items: start;
 }

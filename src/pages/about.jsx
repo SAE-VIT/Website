@@ -24,9 +24,9 @@ import {
 
 function About() {
   const facultyCoordinators = [
-    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: naijuCdImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: senthilKumarMImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: gokulKumarKImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: prHeadImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: editorialHeadImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: financeHeadImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
   ];
 
   const boards = {
@@ -232,15 +232,6 @@ function About() {
   };
 
   const [selectedYear, setSelectedYear] = useState("2026-2027");
-  const [selectedFaculty, setSelectedFaculty] = useState(0);
-
-  const showPreviousFaculty = () => {
-    setSelectedFaculty((current) => (current - 1 + facultyCoordinators.length) % facultyCoordinators.length);
-  };
-
-  const showNextFaculty = () => {
-    setSelectedFaculty((current) => (current + 1) % facultyCoordinators.length);
-  };
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(".scroll-reveal");
@@ -272,25 +263,20 @@ function About() {
           <h2 id="faculty-title">Faculty Coordinators</h2>
         </div>
 
-        <article className="faculty-card reveal-child" style={{ "--reveal-delay": "90ms" }}>
-          <div className="faculty-image">
-            <img src={facultyCoordinators[selectedFaculty].image} alt={facultyCoordinators[selectedFaculty].name} />
-          </div>
-          <div className="faculty-copy">
-            <h3 key={selectedFaculty} className="faculty-name">{facultyCoordinators[selectedFaculty].name}</h3>
-            <span className="faculty-position">{facultyCoordinators[selectedFaculty].position}</span>
-            <p className="faculty-school">{facultyCoordinators[selectedFaculty].school}</p>
-            <span>{facultyCoordinators[selectedFaculty].note}</span>
-            <div className="about-socials faculty-socials">
-              <a href={`mailto:${facultyCoordinators[selectedFaculty].email}`} aria-label={`Email ${facultyCoordinators[selectedFaculty].name}`}><MdEmail /></a>
-              <a href={facultyCoordinators[selectedFaculty].linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${facultyCoordinators[selectedFaculty].name} on LinkedIn`}><FaLinkedin /></a>
+        <div className="faculty-grid">
+          {facultyCoordinators.map((faculty, index) => (
+            <div className="member-card reveal-child" key={faculty.name} style={{ "--reveal-delay": `${index * 90}ms` }}>
+              <img src={faculty.image} alt={faculty.name} />
+              <div className="member-info">
+                <h3>{faculty.name}</h3>
+                <h4>{faculty.position}</h4>
+                <div className="about-socials member-socials">
+                  <a href={`mailto:${faculty.email}`} aria-label={`Email ${faculty.name}`}><MdEmail /></a>
+                  <a href={faculty.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${faculty.name} on LinkedIn`}><FaLinkedin /></a>
+                </div>
+              </div>
             </div>
-          </div>
-        </article>
-        <div className="faculty-controls reveal-child" style={{ "--reveal-delay": "150ms" }}>
-          <span className="faculty-pagination">{selectedFaculty + 1} / {facultyCoordinators.length}</span>
-          <button type="button" onClick={showPreviousFaculty} aria-label="Show previous faculty coordinator">←</button>
-          <button type="button" onClick={showNextFaculty} aria-label="Show next faculty coordinator">→</button>
+          ))}
         </div>
       </section>
 
