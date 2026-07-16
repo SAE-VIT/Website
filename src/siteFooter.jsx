@@ -1,76 +1,49 @@
-// Footer.jsx
-
 import "/src/index.css";
-import logo from "/src/assets/vitlogo.png";
-
 import {
+  FaEnvelope,
+  FaExternalLinkAlt,
+  FaGithub,
   FaInstagram,
   FaLinkedin,
-  FaGithub,
+  FaMediumM,
 } from "react-icons/fa";
 
-function siteFooter() {
+function SiteFooter() {
+  const quickLinks = [
+    { label: "Home", href: "/" },
+    { label: "Events", href: "/events" },
+    { label: "Blogs", href: "/blogs" },
+    { label: "Team", href: "/about" },
+  ];
+
   return (
-    <footer className="footer">
-      <div className="footer-top">
-        <div className="footer-column footer-brand">
-          <img
-            src={logo}
-            alt="SAE-VIT Logo"
-            className="footer-logo"
-          />
+    <footer className="site-footer">
+      <div className="site-footer__content">
+        <div className="site-footer__identity">
+          <h2>Society of Automotive Engineers</h2>
+          <p>Driven by Innovation. Fueled by Success.</p>
 
-          <p className="footer-tagline">
-            Vellore Institute of Technology, Vellore Campus
-          </p>
+          <div className="site-footer__socials" aria-label="SAE-VIT social links">
+            <a href="mailto:saevit@vit.ac.in" aria-label="Email SAE-VIT"><FaEnvelope /><span>saevit@vit.ac.in</span></a>
+            <a href="https://github.com/SAE-VIT" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on GitHub"><FaGithub /><span>SAE-VIT</span></a>
+            <a href="https://instagram.com/sae_vit" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on Instagram"><FaInstagram /><span>sae_vit</span></a>
+            <a href="/blogs" aria-label="Read the SAE-VIT journal"><FaMediumM /><span>SAE-VIT Journal</span></a>
+            <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on LinkedIn"><FaLinkedin /><span>SAE-VIT</span></a>
+          </div>
         </div>
 
-        <div className="footer-column">
-          <h3>Explore</h3>
-
-          <a href="/">Home</a>
-          <a href="/events">Events</a>
-          <a href="/blogs">Blogs</a>
-          <a href="/about">About</a>
-
-        </div>
-
-        <div className="footer-column">
-          <h3>Domains</h3>
-
-          <p>Design & Marketing</p>
-          <p>Editorial</p>
-          <p>Finance</p>
-          <p>Events</p>
-          <p>Outreach</p>
-        </div>
-
-        <div className="footer-column">
-          <h3>Contact</h3>
-
-          <a href="mailto:saevit@vit.ac.in"> saevit@vit.ac.in </a>
-          <p>VIT Vellore</p>
-          <p>Thiruvallam Road, Katpadi </p>
-          <p>Tamil Nadu - 632014</p>
-
-        </div>
+        <nav className="site-footer__nav" aria-label="Footer navigation">
+          {quickLinks.map((link) => (
+            <a key={link.label} href={link.href}>
+              {link.label}<FaExternalLinkAlt aria-hidden="true" />
+            </a>
+          ))}
+        </nav>
       </div>
 
-      <div className="footer-line"></div>
-
-      <div className="footer-bottom">
-        <div className="footer-socials">
-          <a href="https://instagram.com" target="_blank"> <FaInstagram /> </a>
-          <a href="https://linkedin.com" target="_blank"> <FaLinkedin /> </a>
-          <a href="https://youtube.com" target="_blank"> <FaGithub /> </a>
-        </div>
-
-        <p>
-          Made with ❤️ by SAE-VIT 
-        </p>
-      </div>
+      <p className="site-footer__copyright">© {new Date().getFullYear()} SAE-VIT. All rights reserved.</p>
     </footer>
   );
 }
 
-export default siteFooter;
+export default SiteFooter;

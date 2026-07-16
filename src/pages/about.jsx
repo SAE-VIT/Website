@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "/src/index.css";
-import saeTeam from "/src/assets/sae-team-2.jpeg";
+import naijuCdImg from "/src/assets/faculties/naiju cd.png";
+import senthilKumarMImg from "/src/assets/faculties/senthil kumar m.png";
+import gokulKumarKImg from "/src/assets/faculties/gokul kumar k.png";
 import chairImg from "/src/assets/board 26-27/chair.jpeg";
 import secImg from "/src/assets/board 26-27/sec.jpg";
 import viceChairImg from "/src/assets/board 26-27/vice-chair.png";
@@ -22,9 +24,9 @@ import {
 
 function About() {
   const facultyCoordinators = [
-    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: saeTeam, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: saeTeam, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: saeTeam, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: naijuCdImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: senthilKumarMImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: gokulKumarKImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
   ];
 
   const boards = {
@@ -275,11 +277,11 @@ function About() {
             <img src={facultyCoordinators[selectedFaculty].image} alt={facultyCoordinators[selectedFaculty].name} />
           </div>
           <div className="faculty-copy">
-            <h3>{facultyCoordinators[selectedFaculty].name}</h3>
+            <h3 key={selectedFaculty} className="faculty-name">{facultyCoordinators[selectedFaculty].name}</h3>
             <span className="faculty-position">{facultyCoordinators[selectedFaculty].position}</span>
             <p className="faculty-school">{facultyCoordinators[selectedFaculty].school}</p>
             <span>{facultyCoordinators[selectedFaculty].note}</span>
-            <div className="footer-socials faculty-socials">
+            <div className="about-socials faculty-socials">
               <a href={`mailto:${facultyCoordinators[selectedFaculty].email}`} aria-label={`Email ${facultyCoordinators[selectedFaculty].name}`}><MdEmail /></a>
               <a href={facultyCoordinators[selectedFaculty].linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${facultyCoordinators[selectedFaculty].name} on LinkedIn`}><FaLinkedin /></a>
             </div>
@@ -319,7 +321,7 @@ function About() {
               <div className="member-info">
                 <h3>{member.name}</h3>
                 <h4>{member.role}</h4>
-                <div className="footer-socials member-socials">
+                <div className="about-socials member-socials">
                   <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer"> <MdEmail /> </a>
                   <a href={member.linkedin} target="_blank" rel="noopener noreferrer"> <FaLinkedin /> </a>
                   <a href={member.github} target="_blank" rel="noopener noreferrer"> <FaGithub /> </a>

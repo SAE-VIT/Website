@@ -5,14 +5,18 @@ import { client } from '/src/sanityClient'
 import { urlFor } from '/src/imageBuilder'
 import saeTeam from "/src/assets/sae-team-2.jpeg";
 import albatrossLogo from "/src/assets/Team logos/albatross.jpg";
+import asenaLogo from "/src/assets/Team logos/asena.png";
+import celerityLogo from "/src/assets/Team logos/celerity.jpg";
 import falconsLogo from "/src/assets/Team logos/falcons.jpg";
 import jaabazLogo from "/src/assets/Team logos/jaabaz.jpg";
 import kshatriyaLogo from "/src/assets/Team logos/kshatriya.jpg";
 import kshatriyaElectricLogo from "/src/assets/Team logos/kshatriya electric.jpg";
 import ojasLogo from "/src/assets/Team logos/ojas.jpg";
 import pravegaLogo from "/src/assets/Team logos/pravega.jpg";
+import revMechanicsLogo from "/src/assets/Team logos/rev mechanics.jpg";
 import rotorLogo from "/src/assets/Team logos/rotor.jpg";
 import uttejitLogo from "/src/assets/Team logos/uttejit.jpg";
+import vimaanasLogo from "/src/assets/Team logos/vimaanas.jpg";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function Home() {
@@ -72,6 +76,30 @@ function Home() {
       description: "Making every event, collaboration, and initiative happen.",
       image: albatrossLogo,
       alt: "Team Albatross logo",
+    },
+    {
+      title: "Team Asena Racing",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: asenaLogo,
+      alt: "Team Asena Racing logo",
+    },
+    {
+      title: "Team Rev Mechanics",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: revMechanicsLogo,
+      alt: "Team Rev Mechanics logo",
+    },
+    {
+      title: "Team Celerity",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: celerityLogo,
+      alt: "Team Celerity logo",
+    },
+    {
+      title: "Team Vimaanas",
+      description: "Making every event, collaboration, and initiative happen.",
+      image: vimaanasLogo,
+      alt: "Team Vimaanas logo",
     },
   ];
 
@@ -161,7 +189,7 @@ function Home() {
             Our mission is to create a strong tech culture where students can
             learn, build, network, and innovate together.
           </p>
-          <div className="footer-socials">
+          <div className="home-socials">
             <a href="https://instagram.com/sae_vit" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on Instagram"><FaInstagram /></a>
             <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on LinkedIn"><FaLinkedin /></a>
             <a href="https://github.com/SAE-VIT" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on GitHub"><FaGithub /></a>
@@ -209,7 +237,7 @@ function Home() {
       <section className="blogs-sec scroll-reveal">
         <div className="home-blogs-layout">
           <div className="home-blogs-intro reveal-child">
-            <h2>Our Journal</h2>
+            <h2>The SAE Journal</h2>
             <p>
               Our blogs turn the ideas, lessons, and stories behind SAE-VIT
               into useful reads for the wider community. We share what we
@@ -252,12 +280,11 @@ function Home() {
 
       <section className="about-section scroll-reveal">
         <div className="section-title-wrap reveal-child">
-          <h2>Our Teams</h2>
-
-          <p>
+          <h2>Engineering Teams</h2>
+          {/* <p>
             Driven by collaboration, our student teams span engineering, design, operations, and communications, 
             turning ambitious ideas into impactful automotive projects.
-          </p>
+          </p> */}
         </div>
 
         <div className="team-carousel reveal-child">

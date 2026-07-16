@@ -1,8 +1,7 @@
 import React from "react";
 import "./index.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "./assets/sae-logo.png";
-import GooeyNav from '/src/components/GooeyNav'
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -12,22 +11,23 @@ const navItems = [
 ];
 
 function Navbar() {
+  const { pathname } = useLocation();
+
   return (
       <nav className="navbar">
         <NavLink to="/" className="brand-link">
           <img className="brand-logo" src={logo} alt="SAE logo" />
         </NavLink>
-        <div style={{ height: '50px'}}>
-          <GooeyNav
-            items={navItems}
-            particleCount={15}
-            particleDistances={[28, 6]}
-            particleR={42}
-            initialActiveIndex={0}
-            animationTime={600}
-            timeVariance={300}
-            colors={[1, 2, 3, 4, 1, 2, 3, 4]}
-          />
+        <div className="gooey-nav-container">
+          <nav aria-label="Primary navigation">
+            <ul>
+              {navItems.map((item) => (
+                <li key={item.href} className={pathname === item.href ? "active" : ""}>
+                  <NavLink to={item.href}>{item.label}</NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
         {/* <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRtsWDLpjvgVLZFCWHWDHMVSJlkHPZJccRvBZQQdsrWpWDJvbZhLKHqQZJFxLjxPdqVbNTG" className='nav-ele'>Contact us</a> */}
       </nav>
