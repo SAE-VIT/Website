@@ -209,7 +209,14 @@ function Home() {
           <img src={saeTeam} alt="SAE-VIT team" />
         </div>
         <div className="hero-content reveal-child" style={{ "--reveal-delay": "120ms" }}>
-          <h1>What We Do ?</h1>
+          <div className="flex justify-between items-start">
+            <h2 className="pt-2">What We Do ?</h2>
+            <div>
+              <Link to="/about" className="secondary-button what-we-do-link">
+                Learn More
+              </Link>
+            </div>
+          </div>
           <p>
             We are a student-led technical community focused on innovation,
             collaboration, and continuous learning. Through workshops,
@@ -226,9 +233,6 @@ function Home() {
             <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on LinkedIn"><FaLinkedin /></a>
             <a href="https://github.com/SAE-VIT" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on GitHub"><FaGithub /></a>
           </div>
-          <Link to="/about" className="secondary-button what-we-do-link">
-            Learn More
-          </Link>
         </div>
       </section>
 
@@ -281,9 +285,12 @@ function Home() {
               people behind the work, and start conversations that continue
               beyond the workshop.
             </p>
+            <div>
+
             <Link to="/blogs" className="secondary-button">
               View All Blogs
             </Link>
+            </div>
           </div>
 
           <div className="home-blogs-stack" aria-label="Latest blogs">

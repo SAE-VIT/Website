@@ -26,7 +26,7 @@ function Navbar() {
   }, []);
 
   return (
-      <header className={`navbar${isCompact ? " is-compact" : ""}`}>
+      <header className={"px-[4.75rem] pt-[2rem] "+`navbar${isCompact ? " is-compact" : ""}`}>
         <NavLink to="/" className="brand-link" aria-label="SAE-VIT home">
           <img className="brand-logo" src={logo} alt="SAE logo" />
         </NavLink>

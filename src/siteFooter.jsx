@@ -20,7 +20,7 @@ function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__content">
         <div className="site-footer__identity">
-          <h2>Society of Automotive Engineers</h2>
+          <h2>Society of Automotive Engineers, VIT Vellore</h2>
           <p>Driven by Innovation. Fueled by Success.</p>
 
           <div className="site-footer__socials" aria-label="SAE-VIT social links">
