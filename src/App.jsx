@@ -30,7 +30,9 @@ function App(){
     <div className="app-shell">
       {isLoading && (
         <div className={`site-loader ${isExitingLoader ? "is-exiting" : ""}`} role="status" aria-label="Loading website">
-          <div className="site-loader-mark">SAE<span> - </span>VIT</div>
+          <div className="site-loader-mark">
+            <img src="/src/assets/sae-logo.png" alt="SAE VIT Logo" />
+          </div>
           <div className="site-loader-track"><span /></div>
         </div>
       )}

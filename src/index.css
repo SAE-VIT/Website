@@ -6,10 +6,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
-body {
+* {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -30,7 +30,7 @@ body {
   --surface-band: #1b1f20;
   --footer: #111516;
   --shadow: 0 22px 44px rgba(0, 0, 0, 0.34);
-  --page-pad: clamp(1rem, 3vw, 2.125rem);
+  --page-pad: clamp(1.5rem, 5vw, 4.5rem);
   --background: #141819;
   --foreground: #d7d4ce;
   --card: #191d1f;
@@ -104,6 +104,7 @@ img {
 }
 
 .site-loader {
+  --loader-width: min(13rem, 54vw);
   position: fixed;
   z-index: 100;
   inset: 0;
@@ -120,6 +121,7 @@ img {
 }
 
 .site-loader-mark {
+  width: var(--loader-width);
   color: #eaf8fc;
   font-family: "Geist Variable", "Manrope", sans-serif;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -127,10 +129,15 @@ img {
   letter-spacing: 0.12em;
 }
 
+.site-loader-mark img {
+  width: 100%;
+  height: auto;
+}
+
 .site-loader-mark span { color: #3cccf7; }
 
 .site-loader-track {
-  width: min(13rem, 54vw);
+  width: var(--loader-width);
   height: 2px;
   overflow: hidden;
   background: rgba(132, 224, 250, 0.16);
@@ -361,6 +368,7 @@ main:has(.home-page) {
 }
 
 .section-title-wrap h2 {
+  font-family: "Geist Variable", "Manrope", sans-serif;
   line-height: 1.08;
 }
 
@@ -1033,6 +1041,7 @@ main:has(.home-page) {
 .blogs-list {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .blog-row {
@@ -1838,7 +1847,7 @@ main:has(.home-page) {
   .gooey-nav-container nav ul li a { padding-inline: 0.5em; font-size: 0.88rem; }
 
   main {
-    padding: 1.2rem 1rem 3rem;
+    padding: 1.2rem var(--page-pad) 3rem;
   }
 
   .primary-button,
