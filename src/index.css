@@ -2199,6 +2199,20 @@ main:has(.home-page) {
   .home-page .blogs-sec {
     padding-inline: 1.5rem;
   }
+/* 
+  .board-section.scroll-reveal,
+  .board-section .reveal-child {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .board-section,
+  .board-section *,
+  .board-section *::before,
+  .board-section *::after {
+    transition: none !important;
+  } */
 
   .primary-button,
   .secondary-button {
