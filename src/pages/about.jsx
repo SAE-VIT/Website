@@ -24,9 +24,9 @@ import {
 
 function About() {
   const facultyCoordinators = [
-    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: prHeadImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: editorialHeadImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: financeHeadImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: naijuCdImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: senthilKumarMImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: gokulKumarKImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
   ];
 
   const boards = {
@@ -165,68 +165,84 @@ function About() {
 
     "2025-2026": [
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Khush Patel",
+        role: "Chairperson",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Param Kamat",
+        role: "Secretary",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Aayush Nambiar",
+        role: "Vice-Chairperson",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Stuti Lokur",
+        role: "Co-Secretary",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Sakar Jog",
+        role: "Operations Manager",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Srinjay Das",
+        role: "Events Head",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Shloke Binani",
+        role: "PR Head",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
       },
       {
-        name: "Michael Brown",
-        role: "President",
+        name: "Tavisha Anand",
+        role: "Editorial Head",
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          naijuCdImg,
+      },
+      {
+        name: "Anuj Tiwari",
+        role: "Finance Head",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          naijuCdImg,
+      },
+      {
+        name: "Abhinav Aligetti",
+        role: "HR Head",
+        description:
+          "Managed organizational growth and strategic planning.",
+        image:
+          naijuCdImg,
       },
     ],
   };
@@ -259,7 +275,7 @@ function About() {
   return (
     <div className="about-page">
       <section className="faculty-section scroll-reveal" aria-labelledby="faculty-title">
-        <div className="faculty-heading reveal-child">
+        <div className="event-title-wrap reveal-child px-6">
           <h2 id="faculty-title">Faculty Coordinators</h2>
         </div>
 
@@ -280,8 +296,10 @@ function About() {
         </div>
       </section>
 
-      <section className="board-section scroll-reveal">
-        <h2 className="reveal-child">Board Members</h2>
+      <section className="board-section scroll-reveal px-6 ">
+        <div className="event-title-wrap reveal-child">
+          <h2 className="reveal-child font-bold">Board Members</h2>
+        </div>
         <div className="tabs reveal-child" style={{ "--reveal-delay": "90ms" }}>
           {Object.keys(boards).map((year) => (
             <button

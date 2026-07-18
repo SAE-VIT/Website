@@ -4,6 +4,7 @@ import Blogs from './pages/blogs.jsx'
 import Events from './pages/events.jsx'
 import About from './pages/about.jsx'
 import SiteFooter from './siteFooter.jsx'
+import logo from '/src/assets/sae-logo.png'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -31,7 +32,7 @@ function App(){
       {isLoading && (
         <div className={`site-loader ${isExitingLoader ? "is-exiting" : ""}`} role="status" aria-label="Loading website">
           <div className="site-loader-mark">
-            <img src="/src/assets/sae-logo.png" alt="SAE VIT Logo" />
+            <img src={logo} alt="SAE VIT Logo" />
           </div>
           <div className="site-loader-track"><span /></div>
         </div>

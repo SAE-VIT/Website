@@ -54,7 +54,7 @@ const generalEvents = events;
   return (
     <div className="events-page">
       <section className="upcoming-events-section scroll-reveal">
-        <div className="event-title-wrap reveal-child">
+        <div className="event-title-wrap reveal-child px-10">
           <h2>Upcoming Events</h2>
         </div>
 
@@ -97,11 +97,11 @@ const generalEvents = events;
       </section>
 
       <section className="general-events-section scroll-reveal">
-        <div className="event-title-wrap reveal-child">
+        <div className="event-title-wrap reveal-child px-10">
           <h2>All Events</h2>
         </div>
 
-        <div className="sanity-events-grid">
+        <div className="sanity-events-grid px-10">
           {generalEvents.map((event, index) => (
             <article
               className="sanity-event-card hover-lift scroll-reveal"

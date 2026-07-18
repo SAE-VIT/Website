@@ -23,13 +23,13 @@ function Blogs() {
   return (
     <div className="blogs-page">
       <section className="blogs-hero fade-up">
-        <div className="event-title-wrap">
+        <div className="event-title-wrap px-10">
           <h2>Latest Blogs</h2>
         </div>
       </section>
 
       <section className="blogs-list-section fade-up delay-1">
-        <div className="blogs-list">
+        <div className="blogs-list px-10">
           {blogs.map((blog, index) => (
             <article className="blog-row" key={index}>
                 <div className="blog-date">

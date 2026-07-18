@@ -111,6 +111,7 @@ img {
   inset: 0;
   display: grid;
   place-content: center;
+  justify-items: center;
   gap: 1.1rem;
   background: #141819;
   transition: opacity 350ms ease, visibility 350ms ease;
@@ -138,7 +139,7 @@ img {
 .site-loader-mark span { color: #3cccf7; }
 
 .site-loader-track {
-  width: var(--loader-width);
+  width: min(17rem, 68vw);
   height: 2px;
   overflow: hidden;
   background: rgba(132, 224, 250, 0.16);
@@ -563,6 +564,15 @@ main:has(.home-page) {
 .home-page .about-section .section-title-wrap,
 .home-page .sponsors-section .section-title-wrap {
   text-align: center;
+}
+
+.home-page .events-section .section-title-wrap,
+.home-page .about-section .section-title-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.home-page .about-section .section-title-wrap h2 {
+  margin: 0;
 }
 
 .section-heading-row {
@@ -1321,7 +1331,8 @@ main:has(.home-page) {
 .about-page {
   min-height: 100vh;
   color: white;
-  padding: clamp(3rem, 6vw, 3.75rem) clamp(1rem, 8vw, 8%);
+  /* padding: clamp(3rem, 6vw, 3.75rem) clamp(1rem, 8vw, 8%); */
+  padding: 15px;
   font-family: "Wix Madefor Text", system-ui, sans-serif;
 }
 
@@ -1331,6 +1342,7 @@ main:has(.home-page) {
 .home-page .blogs-sec,
 .home-page .about-section {
   background: transparent;
+  min-height: 0;
 }
 
 .hero-section {
@@ -1391,8 +1403,7 @@ main:has(.home-page) {
 
 .home-page .what-we-do-section,
 .home-page .events-section,
-.home-page .blogs-sec,
-.home-page .about-section {
+.home-page .blogs-sec {
   padding-inline: clamp(1.5rem, 5vw, 4.5rem);
   min-height: 65vh;
 }
@@ -1414,10 +1425,9 @@ main:has(.home-page) {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1.25rem, 2.5vw, 1.875rem);
-  width: min(100%, 58rem);
+  width: min(100%, 65rem);
   margin: 0 auto;
 }
-
 .faculty-card {
   display: grid;
   grid-template-columns: minmax(0, 21rem) minmax(0, 1fr);
@@ -1461,7 +1471,7 @@ main:has(.home-page) {
 }
 
 .board-section h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2.6rem, 4vw, 3.55rem);
   margin-bottom: 35px;
 }
 

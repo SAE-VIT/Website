@@ -19,7 +19,7 @@ function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__content">
-        <div className="site-footer__identity">
+        <div className="site-footer__identity px-6.5">
           <h2>Society of Automotive Engineers, VIT Vellore</h2>
           <p>Driven by Innovation. Fueled by Success.</p>
 
@@ -32,7 +32,7 @@ function SiteFooter() {
           </div>
         </div>
 
-        <nav className="site-footer__nav" aria-label="Footer navigation">
+        <nav className="site-footer__nav px-10 " aria-label="Footer navigation">
           {quickLinks.map((link) => (
             <a key={link.label} href={link.href}>
               {link.label}<FaExternalLinkAlt aria-hidden="true" />
