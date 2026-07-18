@@ -1727,21 +1727,39 @@ main:has(.home-page) {
   text-align: center;
 }
 
-@media (max-width: 640px) {
-  .site-footer { min-height: auto; padding: 4px; }
-  .site-footer__content { grid-template-columns: 1fr; min-height: 0; gap: 2rem; }
-  .site-footer__identity h2 { max-width: 18ch; font-size: clamp(2.2rem, 10vw, 3.2rem); line-height: 0.98; }
-  .site-footer__identity > p { margin-bottom: 1.4rem; font-size: 1rem; }
+@media (max-width: 720px) {
+  .site-footer { min-height: auto; padding: 2rem 2rem 1.25rem; }
+  .site-footer__content {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 0;
+    gap: 1rem;
+  }
+  .site-footer__identity { display: contents; }
+  .site-footer__identity h2 {
+    grid-column: 1 / -1;
+    max-width: none;
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    line-height: 0.98;
+  }
+  .site-footer__identity > p {
+    grid-column: 1 / -1;
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+  }
   .site-footer__socials { gap: 0.6rem; }
   .site-footer__socials a { font-size: 0.95rem; }
   .site-footer__nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-items: center;
-    gap: 0.8rem 1rem;
-    width: 100%;
+    grid-template-columns: 1fr;
+    justify-items: end;
+    gap: 0.8rem;
+    width: auto;
     margin-top: 0;
+    padding-inline: 0;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
   }
-  .site-footer__nav a { justify-content: flex-start; }
+  .site-footer__nav a { justify-content: flex-end; }
   .site-footer__copyright { margin-top: 2.25rem; font-size: 0.95rem; }
 
   .about-page {
@@ -1750,6 +1768,7 @@ main:has(.home-page) {
 
   .about-page .faculty-section,
   .about-page .board-section {
+    min-height: 100dvh;
     padding-inline: 1rem;
   }
 
