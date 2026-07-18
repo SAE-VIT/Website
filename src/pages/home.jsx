@@ -201,9 +201,12 @@ function Home() {
           <span className="hero-title-word">Engineers,</span>
           <span className="hero-title-location"> VIT Vellore</span>
         </h1>
-        <p>Driven by Innovation. Fueled by Success</p>
+        <p>
+          <span>Driven by Innovation.</span>{" "}
+          <span>Fueled by Success.</span>
+        </p>
         <a className="scroll-to-reveal" href="#recent-events">
-          Scroll to reveal <span>↓</span>
+          <span>↓</span>
         </a>
       </section>
 

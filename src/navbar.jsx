@@ -25,6 +25,12 @@ function Navbar() {
     return () => window.removeEventListener("scroll", updateNavbar);
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsMenuDismissed(false);
+    setIsMenuHovered(false);
+  }, [pathname]);
+
   return (
       <header className={`navbar${isCompact ? " is-compact" : ""}`}>
         <NavLink to="/" className="brand-link" aria-label="SAE-VIT home">
@@ -42,7 +48,14 @@ function Navbar() {
             <ul>
               {navItems.map((item) => (
                 <li key={item.href} className={pathname === item.href ? "active" : ""}>
-                  <NavLink to={item.href} onClick={() => setIsMenuOpen(false)}>
+                  <NavLink
+                    to={item.href}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setIsMenuDismissed(false);
+                      setIsMenuHovered(false);
+                    }}
+                  >
                     <span>{item.label}</span>
                   </NavLink>
                 </li>
@@ -55,6 +68,12 @@ function Navbar() {
             aria-label="Toggle navigation menu"
             aria-expanded={isMenuOpen}
             onClick={() => {
+              if (window.matchMedia("(max-width: 720px)").matches) {
+                setIsMenuOpen((isOpen) => !isOpen);
+                setIsMenuDismissed(false);
+                return;
+              }
+
               if (isMenuHovered) {
                 setIsMenuOpen(false);
                 setIsMenuDismissed(true);
