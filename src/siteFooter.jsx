@@ -19,7 +19,7 @@ function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__content">
-        <div className="site-footer__identity px-6.5">
+        <div className="site-footer__identity px-7">
           <h2>Society of Automotive Engineers, VIT Vellore</h2>
           <p>Driven by Innovation. Fueled by Success.</p>
 
@@ -27,12 +27,12 @@ function SiteFooter() {
             <a href="mailto:saevit@vit.ac.in" aria-label="Email SAE-VIT"><FaEnvelope /><span>saevit@vit.ac.in</span></a>
             <a href="https://github.com/SAE-VIT" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on GitHub"><FaGithub /><span>SAE-VIT</span></a>
             <a href="https://instagram.com/sae_vit" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on Instagram"><FaInstagram /><span>sae_vit</span></a>
-            <a href="/blogs" aria-label="Read the SAE-VIT journal"><FaMediumM /><span>SAE-VIT Journal</span></a>
+            <a href="https://medium.com/@sae_80504" aria-label="Read the SAE-VIT journal"><FaMediumM /><span>sae_80504</span></a>
             <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on LinkedIn"><FaLinkedin /><span>SAE-VIT</span></a>
           </div>
         </div>
 
-        <nav className="site-footer__nav px-10 " aria-label="Footer navigation">
+        <nav className="site-footer__nav px-10" aria-label="Footer navigation">
           {quickLinks.map((link) => (
             <a key={link.label} href={link.href}>
               {link.label}<FaExternalLinkAlt aria-hidden="true" />

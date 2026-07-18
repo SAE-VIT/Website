@@ -26,7 +26,7 @@ function Navbar() {
   }, []);
 
   return (
-      <header className={"px-[4.75rem] pt-[2rem] "+`navbar${isCompact ? " is-compact" : ""}`}>
+      <header className={`navbar${isCompact ? " is-compact" : ""}`}>
         <NavLink to="/" className="brand-link" aria-label="SAE-VIT home">
           <img className="brand-logo" src={logo} alt="SAE logo" />
         </NavLink>
@@ -42,7 +42,9 @@ function Navbar() {
             <ul>
               {navItems.map((item) => (
                 <li key={item.href} className={pathname === item.href ? "active" : ""}>
-                  <NavLink to={item.href} onClick={() => setIsMenuOpen(false)}>{item.label}</NavLink>
+                  <NavLink to={item.href} onClick={() => setIsMenuOpen(false)}>
+                    <span>{item.label}</span>
+                  </NavLink>
                 </li>
               ))}
             </ul>

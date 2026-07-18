@@ -195,8 +195,11 @@ function Home() {
           <span>3x Elite Chapter</span>
         </div>
         <h1 id="car-hero-title">
-          Society of Automotive Engineers,
-          <span> VIT Vellore</span>
+          <span className="hero-title-word hero-title-word--inline">Society</span>{" "}
+          <span className="hero-title-word hero-title-word--inline">of</span>{" "}
+          <span className="hero-title-word">Automotive</span>{" "}
+          <span className="hero-title-word">Engineers,</span>
+          <span className="hero-title-location"> VIT Vellore</span>
         </h1>
         <p>Driven by Innovation. Fueled by Success</p>
         <a className="scroll-to-reveal" href="#recent-events">
@@ -204,19 +207,12 @@ function Home() {
         </a>
       </section>
 
-      <section id="about" className="hero-section what-we-do-section scroll-reveal">
-        <div className="hero-image reveal-child">
+      <section id="about" className="hero-section what-we-do-section">
+        <div className="hero-image">
           <img src={saeTeam} alt="SAE-VIT team" />
         </div>
-        <div className="hero-content reveal-child" style={{ "--reveal-delay": "120ms" }}>
-          <div className="flex justify-between items-start">
-            <h2 className="pt-2">What We Do ?</h2>
-            <div>
-              <Link to="/about" className="secondary-button what-we-do-link">
-                Learn More
-              </Link>
-            </div>
-          </div>
+        <div className="hero-content">
+          <h2 className="pt-2">What We Do ?</h2>
           <p>
             We are a student-led technical community focused on innovation,
             collaboration, and continuous learning. Through workshops,
@@ -233,13 +229,16 @@ function Home() {
             <a href="https://www.linkedin.com/company/society-of-automotive-engineers-vit-vellore-/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on LinkedIn"><FaLinkedin /></a>
             <a href="https://github.com/SAE-VIT" target="_blank" rel="noopener noreferrer" aria-label="SAE-VIT on GitHub"><FaGithub /></a>
           </div>
+          <Link to="/about" className="secondary-button what-we-do-link">
+            Learn More
+          </Link>
         </div>
       </section>
 
       <section id="recent-events" className="events-section scroll-reveal">
         <div className="section-title-wrap section-heading-row reveal-child">
           <h2>Recent Events</h2>
-          <Link to="/events" className="secondary-button section-more-link">
+          <Link to="/events" className="secondary-button section-more-link section-more-link--desktop">
             View More Events
           </Link>
         </div>
@@ -268,6 +267,10 @@ function Home() {
           ))}
         </div>
 
+        <Link to="/events" className="secondary-button section-more-link section-more-link--mobile">
+          View More Events
+        </Link>
+
       </section>
 
       <section id="blogs" className="blogs-sec scroll-reveal">
@@ -287,7 +290,7 @@ function Home() {
             </p>
             <div>
 
-            <Link to="/blogs" className="secondary-button">
+            <Link to="/blogs" className="secondary-button section-more-link--desktop">
               View All Blogs
             </Link>
             </div>
@@ -314,6 +317,10 @@ function Home() {
               </article>
             ))}
           </div>
+
+          <Link to="/blogs" className="secondary-button section-more-link--mobile">
+            View All Blogs
+          </Link>
         </div>
       </section>
 

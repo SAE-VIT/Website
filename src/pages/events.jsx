@@ -117,9 +117,6 @@ const generalEvents = events;
               )}
 
               <div className="sanity-event-body">
-                <span className="event-date">
-                  {event.eventDate}
-                </span>
                 <h2>{event.title}</h2>
                 <p>{event.description}</p>
               </div>

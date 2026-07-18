@@ -33,8 +33,10 @@ function Blogs() {
           {blogs.map((blog, index) => (
             <article className="blog-row" key={index}>
                 <div className="blog-date">
-                    {(index + 1).toString().padStart(2, "0")}
-                    <span>Published Date: {blog.date}</span>
+                    <span className="blog-number">
+                      {(index + 1).toString().padStart(2, "0")}
+                    </span>
+                    <time dateTime={blog.date}>Published {blog.date}</time>
                 </div>
 
                 <div className="blog-main">

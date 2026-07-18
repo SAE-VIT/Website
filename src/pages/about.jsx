@@ -274,8 +274,8 @@ function About() {
 
   return (
     <div className="about-page">
-      <section className="faculty-section scroll-reveal" aria-labelledby="faculty-title">
-        <div className="event-title-wrap reveal-child px-6">
+      <section className="faculty-section scroll-reveal px-6" aria-labelledby="faculty-title">
+        <div className="event-title-wrap reveal-child">
           <h2 id="faculty-title">Faculty Coordinators</h2>
         </div>
 
