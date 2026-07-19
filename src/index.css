@@ -621,8 +621,7 @@ main:has(.home-page) {
   position: relative;
   isolation: isolate;
   min-width: 0;
-  /* width: calc(100% + (2 * var(--page-pad))); */
-  width: 100vw;
+  width: calc(100% + (2 * var(--page-pad)));
   margin-inline: calc(-1 * var(--page-pad));
   padding-block: 0.65rem;
   /* overflow: hidden; */
@@ -641,17 +640,16 @@ main:has(.home-page) {
 
 .team-carousel::before {
   left: 0;
-  /* background: linear-gradient(to right, rgba(20, 24, 25, 0.38), transparent); */
 }
 
 .team-carousel::after {
   right: 0;
-  /* background: linear-gradient(to left, rgba(20, 24, 25, 0.38), transparent); */
 }
 
 .team-carousel-track {
   display: flex;
   width: max-content;
+  gap: 1.5rem;
   animation: teamCarousel 30s linear infinite;
   will-change: transform;
 }
@@ -659,7 +657,8 @@ main:has(.home-page) {
 .team-carousel-group {
   display: flex;
   gap: 1.5rem;
-  padding-right: 1.5rem;
+  padding-right: 0;
+  flex-shrink: 0;
 }
 
 .team-carousel .sanity-event-card {
