@@ -167,6 +167,7 @@ function Home() {
       *[_type == "teamModal"]{
         carouselId,
         title,
+        teamType,
         description,
         achievements
       }
@@ -249,7 +250,7 @@ function Home() {
         <div className="sanity-events-grid">
           {events.slice(0, 4).map((event, index) => (
             <article
-              className="sanity-event-card hover-lift reveal-child"
+              className="sanity-event-card reveal-child"
               key={index}
               style={{ "--reveal-delay": `${index * 90}ms` }}
             >
@@ -291,7 +292,7 @@ function Home() {
               people behind the work, and start conversations that continue
               beyond the workshop.
             </p>
-            <div>
+            <div className="team-modal__heading">
 
             <Link to="/blogs" className="secondary-button section-more-link--desktop">
               View All Blogs
@@ -427,9 +428,12 @@ function Home() {
             {/* Top Row */}
             <img className="team-modal__logo" src={selectedTeam.image} alt="" />
 
-            <div>
-              <p className="team-modal__eyebrow">Engineering Team</p>
+            <div className="justify-center flex flex-col">
+              {/* <p className="team-modal__eyebrow">Engineering Team</p> */}
               <h2 id="team-modal-title">{selectedTeam.title}</h2>
+              <p className="team-modal__type w-50 justify-center">
+                {selectedTeam.teamType || "Engineering Team"}
+              </p>
             </div>
 
             {/* Bottom Content */}
