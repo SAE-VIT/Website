@@ -25,12 +25,6 @@ function Navbar() {
     return () => window.removeEventListener("scroll", updateNavbar);
   }, []);
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-    setIsMenuDismissed(false);
-    setIsMenuHovered(false);
-  }, [pathname]);
-
   return (
       <header className={`navbar${isCompact ? " is-compact" : ""}`}>
         <NavLink to="/" className="brand-link" aria-label="SAE-VIT home">

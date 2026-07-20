@@ -237,7 +237,7 @@ function About() {
           naijuCdImg,
       },
       {
-        name: "Abhinav Aligetti",
+        name: "Abhinav Aligeti",
         role: "HR Head",
         description:
           "Managed organizational growth and strategic planning.",

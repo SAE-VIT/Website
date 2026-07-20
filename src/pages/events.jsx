@@ -4,6 +4,7 @@ import { urlFor } from "/src/imageBuilder";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     const revealItems = document.querySelectorAll(
@@ -35,16 +36,29 @@ function Events() {
       .fetch(`
         *[_type == "event"] | order(date desc) {
           title,
-          date,
+          "date": coalesce(date, eventDate),
           image,
           description,
           location,
+          time,
+          eventType,
           isUpcoming
         }
       `)
       .then((data) => setEvents(data))
       .catch((err) => console.error("SANITY ERROR:", err));
   }, []);
+
+  useEffect(() => {
+    if (!selectedEvent) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setSelectedEvent(null);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [selectedEvent]);
 
 const upcomingEvents = events
   .filter((event) => event.isUpcoming)
@@ -107,6 +121,16 @@ const generalEvents = events;
               className="sanity-event-card hover-lift scroll-reveal"
               key={index}
               style={{ "--reveal-delay": `${(index % 4) * 90}ms` }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details for ${event.title}`}
+              onClick={() => setSelectedEvent(event)}
+              onKeyDown={(keyboardEvent) => {
+                if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+                  keyboardEvent.preventDefault();
+                  setSelectedEvent(event);
+                }
+              }}
             >
               {event.image && (
                 <img
@@ -124,6 +148,79 @@ const generalEvents = events;
           ))}
         </div>
       </section>
+
+      {selectedEvent && (
+        <div
+          className="team-modal-backdrop"
+          role="presentation"
+          onMouseDown={() => setSelectedEvent(null)}
+        >
+          <section
+            className="team-modal event-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="event-modal-title"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <button
+              className="team-modal__close"
+              type="button"
+              onClick={() => setSelectedEvent(null)}
+              aria-label="Close event details"
+            >
+              ×
+            </button>
+
+            {selectedEvent.image && (
+              <img
+                className="team-modal__logo event-modal__image"
+                src={urlFor(selectedEvent.image).width(760).height(520).url()}
+                alt=""
+              />
+            )}
+
+            <div className="team-modal__heading">
+              <h2 id="event-modal-title">{selectedEvent.title}</h2>
+              {selectedEvent.eventType && (
+                <p className="team-modal__type">{selectedEvent.eventType}</p>
+              )}
+            </div>
+
+            <div className="team-modal__content">
+              <div className="team-modal__section">
+                <h3>Event Details</h3>
+                <dl className="event-modal__details">
+                  {selectedEvent.date && (
+                    <div className="event-modal__detail event-modal__detail--date">
+                      <dt>Date</dt>
+                      <dd>{selectedEvent.date}</dd>
+                    </div>
+                  )}
+                  {selectedEvent.time && (
+                    <div className="event-modal__detail">
+                      <dt>Time</dt>
+                      <dd>{selectedEvent.time}</dd>
+                    </div>
+                  )}
+                  {selectedEvent.location && (
+                    <div className="event-modal__detail event-modal__detail--venue">
+                      <dt>Venue</dt>
+                      <dd>{selectedEvent.location}</dd>
+                    </div>
+                  )}
+                </dl>
+              </div>
+
+              <div className="team-modal__section">
+                <h3>Description</h3>
+                <p className="team-modal__description">
+                  {selectedEvent.description}
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }

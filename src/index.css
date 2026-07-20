@@ -652,6 +652,10 @@ main:has(.home-page) {
   gap: 1.5rem;
   animation: teamCarousel 30s linear infinite;
   will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .team-carousel-group {
@@ -809,19 +813,73 @@ main:has(.home-page) {
 .team-modal h2 { margin: 0; color: #f3f4f6; font-size: clamp(1.8rem, 4vw, 2.75rem); line-height: 1.05; }
 .team-modal__heading { align-self: center; }
 .team-modal__type { display: inline-flex; margin: 0.9rem 0 0; padding: 0.32rem 0.65rem; border: 1px solid rgba(95, 215, 251, 0.4); border-radius: 999px; background: rgba(60, 204, 247, 0.1); color: #9ceaff; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-.team-modal__content { display: flex; grid-column: 1 / -1; flex-direction: column; }
-.team-modal__description { order: 3; margin: 1.35rem 0 0; color: #c1cacc; line-height: 1.7; }
+.team-modal__content { display: flex; grid-column: 1 / -1; flex-direction: column; gap: 1.5rem; }
+.team-modal__section { display: flex; flex-direction: column; gap: 0.65rem; }
+.team-modal__description { margin: 0; color: #c1cacc; line-height: 1.7; }
 .team-modal h3 { margin: 0 0 0.65rem; color: #f3f4f6; font-size: 1rem; }
-.team-modal__content h3 { order: 1; }
-.team-modal ul { order: 2; margin: 0; padding-left: 1.15rem; color: #c1cacc; }
+.team-modal__section h3 { margin: 0; }
+.team-modal ul { margin: 0; padding-left: 1.15rem; color: #c1cacc; }
 .team-modal li + li { margin-top: 0.4rem; }
-.team-modal__empty { order: 2; margin: 0; color: #9aa7aa; font-size: 0.92rem; }
-.team-modal__content:has(.team-modal__empty) h3,
-.team-modal__content:has(.team-modal__empty) .team-modal__empty { display: none; }
+.team-modal__empty { margin: 0; color: #9aa7aa; font-size: 0.92rem; }
+
+.event-modal__image {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.event-modal__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.event-modal__detail {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.event-modal__details dt {
+  color: #c1cacc;
+  font-weight: 600;
+}
+
+.event-modal__details dd {
+  margin: 0;
+  color: #f3f4f6;
+  line-height: 1.35;
+}
+
+.events-page .sanity-events-grid .sanity-event-card,
+.events-section .sanity-events-grid .sanity-event-card {
+  cursor: pointer;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.events-page .sanity-events-grid .sanity-event-card:hover,
+.events-page .sanity-events-grid .sanity-event-card:focus-visible,
+.events-section .sanity-events-grid .sanity-event-card:hover,
+.events-section .sanity-events-grid .sanity-event-card:focus-visible {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.26);
+  transform: translateY(-6px) scale(1);
+}
+
+.events-section.scroll-reveal.is-visible .sanity-events-grid .sanity-event-card.reveal-child:hover {
+  transform: translateY(-6px) scale(1);
+}
+
+.events-page .sanity-events-grid .sanity-event-card.scroll-reveal.is-visible:hover {
+  transform: translateY(-6px) scale(1);
+}
 
 @media (max-width: 820px) {
   .team-modal { width: 100%; grid-template-columns: 1fr; gap: 1.25rem; padding-top: 3.5rem; }
   .team-modal__logo { width: min(100%, 13rem); }
+  .team-modal__heading { align-items: center; text-align: center; }
 }
 
 .sponsors-section {

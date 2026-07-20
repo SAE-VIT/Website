@@ -35,6 +35,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [teamData, setTeamData] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const pastSponsors = [
     sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
     sponsor7, sponsor8, sponsor9, sponsor10, sponsor11,
@@ -138,9 +139,12 @@ function Home() {
     client.fetch(`
       *[_type == "event"] {
         title,
-        eventDate,
+        "date": coalesce(date, eventDate),
         image,
-        description
+        description,
+        location,
+        time,
+        eventType
       }
     `)
     .then((data) => setEvents(data))
@@ -177,15 +181,18 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    if (!selectedTeam) return undefined;
+    if (!selectedTeam && !selectedEvent) return undefined;
 
     const closeOnEscape = (event) => {
-      if (event.key === "Escape") setSelectedTeam(null);
+      if (event.key === "Escape") {
+        setSelectedTeam(null);
+        setSelectedEvent(null);
+      }
     };
 
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
-  }, [selectedTeam]);
+  }, [selectedTeam, selectedEvent]);
 
   return (
     <div className="home-page light-page">
@@ -253,6 +260,16 @@ function Home() {
               className="sanity-event-card reveal-child"
               key={index}
               style={{ "--reveal-delay": `${index * 90}ms` }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details for ${event.title}`}
+              onClick={() => setSelectedEvent(event)}
+              onKeyDown={(keyboardEvent) => {
+                if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+                  keyboardEvent.preventDefault();
+                  setSelectedEvent(event);
+                }
+              }}
             >
               {event.image && (
                 <img
@@ -263,7 +280,7 @@ function Home() {
               )}
 
               <div className="sanity-event-body">
-                <span>{event.eventDate}</span>
+                {/* <span>{event.date}</span> */}
                 <h2>{event.title}</h2>
                 <p>{event.description}</p>
               </div>
@@ -425,36 +442,117 @@ function Home() {
               ×
             </button>
 
-            {/* Top Row */}
             <img className="team-modal__logo" src={selectedTeam.image} alt="" />
 
-            <div className="justify-center flex flex-col">
-              {/* <p className="team-modal__eyebrow">Engineering Team</p> */}
+            <div className="team-modal__heading justify-center flex flex-col">
               <h2 id="team-modal-title">{selectedTeam.title}</h2>
               <p className="team-modal__type w-50 justify-center">
                 {selectedTeam.teamType || "Engineering Team"}
               </p>
             </div>
 
-            {/* Bottom Content */}
             <div className="team-modal__content">
-              <p className="team-modal__description">
-                {selectedTeam.description}
-              </p>
+              <div className="team-modal__section">
+                <h3>Achievements</h3>
+                {selectedTeam.achievements?.length ? (
+                  <ul>
+                    {selectedTeam.achievements.map((achievement, index) => (
+                      <li key={index}>{achievement}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="team-modal__empty">
+                    Achievements and team milestones will be added here.
+                  </p>
+                )}
+              </div>  
 
-              <h3>Achievements</h3>
+              <div className="team-modal__section">
+                <h3>Description</h3>
+                {selectedTeam.description?.length ? (
+                  <p className="team-modal__description">
+                    {selectedTeam.description}
+                  </p>
+                ) : (
+                  <p className="team-modal__empty">
+                    No description available.
+                  </p>
+                )}
+              </div>
 
-              {selectedTeam.achievements?.length ? (
-                <ul>
-                  {selectedTeam.achievements.map((achievement, index) => (
-                    <li key={index}>{achievement}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="team-modal__empty">
-                  Achievements and team milestones will be added here.
-                </p>
+            </div>
+          </section>
+        </div>
+      )}
+
+      {selectedEvent && (
+        <div
+          className="team-modal-backdrop"
+          role="presentation"
+          onMouseDown={() => setSelectedEvent(null)}
+        >
+          <section
+            className="team-modal event-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="event-modal-title"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <button
+              className="team-modal__close"
+              type="button"
+              onClick={() => setSelectedEvent(null)}
+              aria-label="Close event details"
+            >
+              ×
+            </button>
+
+            {selectedEvent.image && (
+              <img
+                className="team-modal__logo event-modal__image"
+                src={urlFor(selectedEvent.image).width(760).height(520).url()}
+                alt=""
+              />
+            )}
+
+            <div className="team-modal__heading">
+              <h2 id="event-modal-title">{selectedEvent.title}</h2>
+              {selectedEvent.eventType && (
+                <p className="team-modal__type">{selectedEvent.eventType}</p>
               )}
+            </div>
+
+            <div className="team-modal__content">
+              <div className="team-modal__section">
+                <dl className="event-modal__details">
+                  <h3>Event Details: </h3>
+                  {selectedEvent.date && (
+                    <div className="event-modal__detail">
+                      <dt>Date: </dt>
+                      <dd>{selectedEvent.date}</dd>
+                    </div>
+                  )}
+                  {selectedEvent.time && (
+                    <div className="event-modal__detail">
+                      <dt>Time: </dt>
+                      <dd>{selectedEvent.time}</dd>
+                    </div>
+                  )}
+                  {selectedEvent.location && (
+                    <div className="event-modal__detail">
+                      <dt>Venue: </dt>
+                      <dd>{selectedEvent.location}</dd>
+                    </div>
+                  )}
+                </dl>
+              </div>
+
+              <div className="team-modal__section">
+                <h3>Description</h3>
+                <p className="team-modal__description">
+                  {selectedEvent.description}
+                </p>
+              </div>
             </div>
           </section>
         </div>
