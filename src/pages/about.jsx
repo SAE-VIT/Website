@@ -16,6 +16,14 @@ import hrHeadImg from "/src/assets/board 26-27/hr-head.jpg";
 import technicalHeadImg from "/src/assets/board 26-27/technical-head.jpeg";
 import aerodominatorHeadImg from "/src/assets/board 26-27/aerodominator-Head.jpg";
 import drlHeadImg from "/src/assets/board 26-27/drl-head.jpeg";
+import khushIMg from "/src/assets/board 25-26/khush.jpeg";
+import paramImg from "/src/assets/board 25-26/param.jpg";
+import aayushImg from "/src/assets/board 25-26/aayush.jpeg";
+import srinjayImg from "/src/assets/board 25-26/srinjay.jpeg";
+import shlokeImg from "/src/assets/board 25-26/shloke.jpeg";
+import tavishaImg from "/src/assets/board 25-26/tavisha.jpeg";
+import anujImg from "/src/assets/board 25-26/anuj.jpeg";
+import abhinavImg from "/src/assets/board 25-26/abhinav.jpeg";
 import { MdEmail } from "react-icons/md";
 import {
   FaLinkedin,
@@ -37,9 +45,9 @@ function About() {
         description:
           "Coordinates quantum waffles while optimizing hyperdrive synergy across multidimensional pancake frameworks and orbital workflows.",
         image: chairImg,
-        email:"",
+        email:"stutislokur@gmail.com",
         linkedin:"",
-        github:"",
+        github:"https://www.linkedin.com/in/stutilokur/",
       },
       {
         name: "Sakar Jog",
@@ -48,7 +56,7 @@ function About() {
           "Manages intergalactic spreadsheets and synchronizes cosmic bananas through parallel event vortex calibration systems.",
         image: secImg,
         email:"",
-        linkedin:"",
+        linkedin:"https://www.linkedin.com/in/sakar-jog-a2724b218/",
         github:"",
       },
       {
@@ -57,9 +65,9 @@ function About() {
         description:
           "Supervises turbo llamas and assists with holographic cloud engineering for ultra-efficient moonlight coordination protocols.",
         image: viceChairImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"netrapatel155@gmail.com",
+        linkedin:"http://linkedin.com/in/netra-patel-117357349/",
+        github:"https://github.com/Netra1505",
       },
       {
         name: "Swarali Upadhyay",
@@ -67,9 +75,9 @@ function About() {
         description:
           "Processes neon marshmallows while balancing encrypted jellybean logistics through advanced waffle communication matrices.",
         image: coSecretaryImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"swaraliupd@gmail.com",
+        linkedin:"https://www.linkedin.com/in/swarali-upadhyay-174582321/",
+        github:"https://github.com/SwaraliUpadhyay",
       },
       {
         name: "Bhupendra Singh",
@@ -77,9 +85,9 @@ function About() {
         description:
           "Optimizes flamingo propulsion engines and maintains operational smoothie equilibrium during hyperspace sandwich deployment cycles.",
         image: operationsManagerImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"sbhupendra1107@gmail.com",
+        linkedin:"https://grabcad.com/bhupendra.singh-46",
+        github:"https://www.linkedin.com/in/bhupendra-singh-mech/",
       },
       {
         name: "Dhritiman Goswami",
@@ -87,9 +95,9 @@ function About() {
         description:
           "Designs galactic taco festivals while orchestrating synchronized penguin launches across temporal confetti dimensions.",
         image: eventsHeadImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"dhritimangoswami05@gmail.com",
+        linkedin:"https://www.linkedin.com/in/dhritiman-goswami",
+        github:"https://github.com/dhritimangoswami05",
       },
       {
         name: "Jacob Jiby",
@@ -97,9 +105,9 @@ function About() {
         description:
           "Communicates with invisible pineapples and negotiates rainbow-powered alliances through futuristic noodle transmission systems.",
         image: prHeadImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"jacobjibi21@gmail.com",
+        linkedin:"https://github.com/jackisdum",
+        github:"https://www.linkedin.com/in/thejacobjiby/",
       },
       {
         name: "Sanjeev",
@@ -107,9 +115,9 @@ function About() {
         description:
           "Curates interstellar alphabet soup while refining upside-down vocabulary structures for cosmic storytelling harmonization.",
         image: editorialHeadImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"⁠sanjeevasaurus@gmail.com",
+        linkedin:"https://www.linkedin.com/in/sanjeev-p-bb768231b/",
+        github:"https://github.com/sanjeevasaurus",
       },
       {
         name: "Pulkit Gupta",
@@ -117,9 +125,9 @@ function About() {
         description:
           "Calculates potato-based economies and balances floating cryptocurrency muffins using advanced toaster analytics engines.",
         image: financeHeadImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"pulkitgupta51734@gmail.com",
+        linkedin:"www.linkedin.com/in/pulkit-gupta-oct20",
+        github:"https://github.com/pulkitgupta51734",
       },
       {
         name: "Daksh Jain",
@@ -127,9 +135,9 @@ function About() {
         description:
           "Enhances human-alien collaboration while organizing motivational spaghetti ceremonies across collaborative moonbeam ecosystems.",
         image: hrHeadImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"dakshjain2405@gmail.com",
+        linkedin:"www.linkedin.com/in/daksh-jain-842b94385",
+        github:"http://github.com/daksh2405",
       },
       {
         name: "Jitaan Banerjee",
@@ -148,7 +156,7 @@ function About() {
           "Pilots anti-gravity coconuts while engineering aerodynamic donut propulsion systems for cloud-based rocket simulations.",
         image: aerodominatorHeadImg,
         email:"",
-        linkedin:"",
+        linkedin:"https://www.linkedin.com/in/harshvardhan-ladhad-40193a313/",
         github:"",
       },
       {
@@ -157,9 +165,9 @@ function About() {
         description:
           "Commands autonomous marshmallow drones and researches quantum biscuit navigation through robotic pineapple intelligence networks.",
         image: drlHeadImg,
-        email:"",
-        linkedin:"",
-        github:"",
+        email:"shloksharma710@gmail.com",
+        linkedin:"https://www.linkedin.com/in/shlok-sharma7/",
+        github:"https://github.com/Shlok107",
       },
     ],
 
@@ -170,7 +178,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          khushIMg,
       },
       {
         name: "Param Kamat",
@@ -178,7 +186,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          paramImg,
       },
       {
         name: "Aayush Nambiar",
@@ -186,7 +194,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          aayushImg,
       },
       {
         name: "Stuti Lokur",
@@ -194,7 +202,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          chairImg,
       },
       {
         name: "Sakar Jog",
@@ -202,7 +210,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          secImg,
       },
       {
         name: "Srinjay Das",
@@ -210,7 +218,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          srinjayImg,
       },
       {
         name: "Shloke Binani",
@@ -218,7 +226,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          shlokeImg,
       },
       {
         name: "Tavisha Anand",
@@ -226,7 +234,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          tavishaImg,
       },
       {
         name: "Anuj Tiwari",
@@ -234,7 +242,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          anujImg,
       },
       {
         name: "Abhinav Aligeti",
@@ -242,7 +250,7 @@ function About() {
         description:
           "Managed organizational growth and strategic planning.",
         image:
-          naijuCdImg,
+          abhinavImg,
       },
     ],
   };
