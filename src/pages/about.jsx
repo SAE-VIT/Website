@@ -32,9 +32,33 @@ import {
 
 function About() {
   const facultyCoordinators = [
-    { name: "Dr. Naiju CD", position: "Professor Higher Academic Grade", school: "School of Mechanical Engineering", note: "Guiding the SAE-VIT student chapter.", image: naijuCdImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Senthil Kumar M", position: "Associate Professor Grade 2", school: "School of Mechanical Engineering", note: "Supporting student-led automotive innovation.", image: senthilKumarMImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
-    { name: "Dr. Gokul Kumar K", position: "Professor Grade 1", school: "School of Mechanical Engineering", note: "Mentoring the chapter's technical and professional growth.", image: gokulKumarKImg, email: "faculty@vit.ac.in", linkedin: "https://www.linkedin.com/" },
+    { 
+      name: "Dr. Naiju CD", 
+      position: "Professor Higher Academic Grade", 
+      school: "School of Mechanical Engineering", 
+      note: "Guiding the SAE-VIT student chapter.", 
+      image: naijuCdImg, 
+      email: "director.sw@vit.ac.in", 
+      linkedin: "https://in.linkedin.com/in/naijucd" 
+    },
+    { 
+      name: "Dr. Senthil Kumar M", 
+      position: "Associate Professor Grade 2", 
+      school: "School of Mechanical Engineering", 
+      note: "Supporting student-led automotive innovation.", 
+      image: senthilKumarMImg, 
+      email: "msenthilkumar@vit.ac.in", 
+      linkedin: "https://in.linkedin.com/in/dr-senthil-kumar-m-0971a2a9" 
+    },
+    { 
+      name: "Dr. Gokul Kumar K", 
+      position: "Professor Grade 1", 
+      school: "School of Mechanical Engineering", 
+      note: "Mentoring the chapter's technical and professional growth.", 
+      image: gokulKumarKImg, 
+      email: "kgokulkumar@vit.ac.in", 
+      linkedin: "https://in.linkedin.com/in/gokul-kumar-08117116" 
+    },
   ];
 
   const boards = {
@@ -57,7 +81,7 @@ function About() {
         image: secImg,
         email:"",
         linkedin:"https://www.linkedin.com/in/sakar-jog-a2724b218/",
-        github:"",
+        github:"https://github.com/SakarJ-08",
       },
       {
         name: "Netra Patel",
@@ -86,8 +110,8 @@ function About() {
           "Optimizes flamingo propulsion engines and maintains operational smoothie equilibrium during hyperspace sandwich deployment cycles.",
         image: operationsManagerImg,
         email:"sbhupendra1107@gmail.com",
-        linkedin:"https://grabcad.com/bhupendra.singh-46",
-        github:"https://www.linkedin.com/in/bhupendra-singh-mech/",
+        linkedin:"https://www.linkedin.com/in/bhupendra-singh-mech/",
+        github:"https://grabcad.com/bhupendra.singh-46",
       },
       {
         name: "Dhritiman Goswami",
@@ -106,8 +130,8 @@ function About() {
           "Communicates with invisible pineapples and negotiates rainbow-powered alliances through futuristic noodle transmission systems.",
         image: prHeadImg,
         email:"jacobjibi21@gmail.com",
-        linkedin:"https://github.com/jackisdum",
-        github:"https://www.linkedin.com/in/thejacobjiby/",
+        linkedin:"https://www.linkedin.com/in/thejacobjiby/",
+        github:"https://github.com/jackisdum",
       },
       {
         name: "Sanjeev",

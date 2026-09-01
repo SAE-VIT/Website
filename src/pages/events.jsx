@@ -6,6 +6,31 @@ function Events() {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+  const formatDate = (date) => {
+    if (!date) return "";
+
+    const d = new Date(date);
+
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+
+    return `${day}-${month}-${year}`;
+  };
+
+  const parseEventDate = (date) => {
+    if (!date) return null;
+
+    const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+    if (dateOnly) {
+      const [, year, month, day] = dateOnly;
+      return new Date(year, month - 1, day);
+    }
+
+    const parsedDate = new Date(date);
+    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate;
+  };
+
   useEffect(() => {
     const revealItems = document.querySelectorAll(
       ".events-page .scroll-reveal"
@@ -34,9 +59,10 @@ function Events() {
   useEffect(() => {
     client
       .fetch(`
-        *[_type == "event"] | order(date desc) {
+        *[_type == "event"] | order(start_date desc) {
           title,
-          "date": coalesce(date, eventDate),
+          start_date,
+          end_date,
           image,
           description,
           location,
@@ -60,10 +86,23 @@ function Events() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [selectedEvent]);
 
-const upcomingEvents = events
-  .filter((event) => event.isUpcoming)
-  .sort((a, b) => new Date(a.date) - new Date(b.date));
-const generalEvents = events;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcomingEvents = events
+    .filter((event) => {
+      const eventEndDate = parseEventDate(
+        event.end_date || event.start_date
+      );
+
+      return event.isUpcoming && eventEndDate && eventEndDate >= today;
+    })
+    .sort(
+      (a, b) =>
+        new Date(a.start_date) - new Date(b.start_date)
+    );
+
+  const generalEvents = events;
 
   return (
     <div className="events-page">
@@ -85,6 +124,7 @@ const generalEvents = events;
                 <span className="timeline-tag">
                   Upcoming Event
                 </span>
+
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
               </div>
@@ -95,16 +135,21 @@ const generalEvents = events;
 
               <div className="timeline-right">
                 <div className="timeline-meta">
-                  <span>Date</span>
-                  <strong>{event.date}</strong>
+                  <span>Dates</span>
+                  <strong>
+                    {formatDate(event.start_date)}
+                    {event.end_date &&
+                      ` - ${formatDate(event.end_date)}`}
+                  </strong>
                 </div>
 
                 <div className="timeline-meta">
                   <span>Venue</span>
-                  <strong>{event.location || "VIT Vellore"}</strong>
+                  <strong>
+                    {event.location || "VIT Vellore"}
+                  </strong>
                 </div>
               </div>
-
             </article>
           ))}
         </div>
@@ -120,13 +165,18 @@ const generalEvents = events;
             <article
               className="sanity-event-card hover-lift scroll-reveal"
               key={index}
-              style={{ "--reveal-delay": `${(index % 4) * 90}ms` }}
+              style={{
+                "--reveal-delay": `${(index % 4) * 90}ms`,
+              }}
               role="button"
               tabIndex={0}
               aria-label={`View details for ${event.title}`}
               onClick={() => setSelectedEvent(event)}
               onKeyDown={(keyboardEvent) => {
-                if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+                if (
+                  keyboardEvent.key === "Enter" ||
+                  keyboardEvent.key === " "
+                ) {
                   keyboardEvent.preventDefault();
                   setSelectedEvent(event);
                 }
@@ -134,7 +184,10 @@ const generalEvents = events;
             >
               {event.image && (
                 <img
-                  src={urlFor(event.image).width(520).height(320).url()}
+                  src={urlFor(event.image)
+                    .width(520)
+                    .height(320)
+                    .url()}
                   alt={event.title}
                   className="sanity-event-image"
                 />
@@ -174,15 +227,23 @@ const generalEvents = events;
             {selectedEvent.image && (
               <img
                 className="team-modal__logo event-modal__image"
-                src={urlFor(selectedEvent.image).width(760).height(520).url()}
+                src={urlFor(selectedEvent.image)
+                  .width(760)
+                  .height(520)
+                  .url()}
                 alt=""
               />
             )}
 
             <div className="team-modal__heading">
-              <h2 id="event-modal-title">{selectedEvent.title}</h2>
+              <h2 id="event-modal-title">
+                {selectedEvent.title}
+              </h2>
+
               {selectedEvent.eventType && (
-                <p className="team-modal__type">{selectedEvent.eventType}</p>
+                <p className="team-modal__type">
+                  {selectedEvent.eventType}
+                </p>
               )}
             </div>
 
@@ -190,29 +251,37 @@ const generalEvents = events;
               <div className="team-modal__section">
                 <h3>Event Details</h3>
                 <dl className="event-modal__details">
-                  {selectedEvent.date && (
+                  {selectedEvent.start_date && (
                     <div className="event-modal__detail event-modal__detail--date">
-                      <dt>Date</dt>
-                      <dd>{selectedEvent.date}</dd>
+                      <dt>Date:</dt>
+                      <dd>
+                        {formatDate(selectedEvent.start_date)}
+                        {selectedEvent.end_date &&
+                          ` - ${formatDate(selectedEvent.end_date)}`}
+                      </dd>
                     </div>
                   )}
+
                   {selectedEvent.time && (
                     <div className="event-modal__detail">
-                      <dt>Time</dt>
+                      <dt>Time:</dt>
                       <dd>{selectedEvent.time}</dd>
                     </div>
                   )}
+
                   {selectedEvent.location && (
                     <div className="event-modal__detail event-modal__detail--venue">
-                      <dt>Venue</dt>
+                      <dt>Venue:</dt>
                       <dd>{selectedEvent.location}</dd>
                     </div>
                   )}
+
                 </dl>
               </div>
 
               <div className="team-modal__section">
                 <h3>Description</h3>
+
                 <p className="team-modal__description">
                   {selectedEvent.description}
                 </p>
