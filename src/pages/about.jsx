@@ -79,7 +79,7 @@ function About() {
         description:
           "Manages intergalactic spreadsheets and synchronizes cosmic bananas through parallel event vortex calibration systems.",
         image: secImg,
-        email:"",
+        email:"sjog201@gmail.com",
         linkedin:"https://www.linkedin.com/in/sakar-jog-a2724b218/",
         github:"https://github.com/SakarJ-08",
       },
@@ -357,11 +357,13 @@ function About() {
               <div className="member-info">
                 <h3>{member.name}</h3>
                 <h4>{member.role}</h4>
-                <div className="about-socials member-socials">
-                  <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer"> <MdEmail /> </a>
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer"> <FaLinkedin /> </a>
-                  <a href={member.github} target="_blank" rel="noopener noreferrer"> <FaGithub /> </a>
-                </div>
+                {selectedYear === "2026-2027" && (
+                  <div className="about-socials member-socials">
+                    <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer"> <MdEmail /> </a>
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer"> <FaLinkedin /> </a>
+                    <a href={member.github} target="_blank" rel="noopener noreferrer"> <FaGithub /> </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}

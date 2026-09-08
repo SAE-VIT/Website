@@ -36,6 +36,17 @@ function Home() {
   const [teamData, setTeamData] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const formatDate = (date) => {
+    if (!date) return "";
+
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+
+    return `${day}-${month}-${year}`;
+  };
   const pastSponsors = [
     sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
     sponsor7, sponsor8, sponsor9, sponsor10, sponsor11,
@@ -139,7 +150,8 @@ function Home() {
     client.fetch(`
       *[_type == "event"] {
         title,
-        "date": coalesce(date, eventDate),
+        start_date,
+        end_date,
         image,
         description,
         location,
@@ -526,10 +538,14 @@ function Home() {
               <div className="team-modal__section">
                 <dl className="event-modal__details">
                   <h3>Event Details: </h3>
-                  {selectedEvent.date && (
-                    <div className="event-modal__detail">
+                  {selectedEvent.start_date && (
+                    <div className="event-modal__detail event-modal__detail--date">
                       <dt>Date: </dt>
-                      <dd>{selectedEvent.date}</dd>
+                      <dd>
+                        {formatDate(selectedEvent.start_date)}
+                        {selectedEvent.end_date &&
+                          ` - ${formatDate(selectedEvent.end_date)}`}
+                      </dd>
                     </div>
                   )}
                   {selectedEvent.time && (
